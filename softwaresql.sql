@@ -16,7 +16,7 @@ inputorgt varchar(100) not null , --Email address
 inputtimet varchar(100) not null , --Email address
 inputseatt numeric(15) not null, --Phone
 inputmodet varchar(50) not null, --Name
-primary key(inputemailt,inputphonet)
+primary key(inputemailt)
 );
 
 create table Finalstudentprofile(
@@ -33,12 +33,17 @@ inputagestu int not null, --age
 inputgenstu varchar(10) not null, --organisationlink
 inputtimestu varchar(100) not null, --organisationlink
 inputmodestu varchar(100) not null, --linkedinlink
-primary key(inputemailstu,inputphonestu)
+primary key(inputemailstu)
 );
 
 create table Finalstudentregister(
 registernewcontact numeric(15) not null, --StudentName
 registernewemail varchar(100) not null, --StudentEmail address
 studentnotetotutor varchar(200) not null, --address
-constraint fk_emailphone foreign key(registernewemail, registernewcontact) references Finalstudentprofile(inputemailstu, inputphonestu)
+constraint fk_emailphone foreign key(registernewemail) references Finalstudentprofile(inputemailstu)
 );
+
+
+DROP TABLE Finaltutorprofile;
+DROP TABLE Finalstudentprofile;
+DROP TABLE Finalstudentregister;

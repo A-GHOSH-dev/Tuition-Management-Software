@@ -18,10 +18,13 @@
       <nav>
         <h1>TUTFINDER</h1>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">DashBoard</a></li>
-          <li><a href="contact.html">Connect</a></li>
-          <img class="avatar" src="https://picsum.photos/200/200" alt="" />
+          <li><a href="/index">Home</a></li>
+          {% for forders in finalprofiletutorder %}
+          <li><a href="tutordashboard/{{forders.inputemailt}}">DashBoard</a></li>
+          <li><a href="tutorprofile/{{forders.inputemailt}}">Profile </a></li>
+          {% endfor %}
+          <li><a href="/logout">LogOut</a></li>
+          <img class="avatar" src="{{finalprofiletutorder.inputpict}}" alt="" />
         </ul>
       </nav>
       <div class="parent">
@@ -30,7 +33,7 @@
             <div class="up">
               <img
                 class="avatar-l"
-                src="https://picsum.photos/200/200"
+                src="{{finalprofiletutorder.inputpict}}"
                 alt=""
               />
 
@@ -39,8 +42,10 @@
             <div class="down">
               <div class="cred">
                 <br><br>
-                <h3>Yash Maheshwari</h3>
-                <h4><center> @itsmeyash</h4>
+                <h3>{{finalprofiletutorder.inputfirstnamet}} {{finalprofiletutorder.inputlastnamet}}</h3>
+                <h4><center> {{finalprofiletutorder.inputemailt}}</h4>
+                  <h4><center> {{finalprofiletutorder.inputphonet}}</h4>
+                    <h4><center> {{finalprofiletutorder.inputtypet}}</h4>
 
               </div>
               <div class="space"></div>
@@ -51,14 +56,14 @@
           <div class="right">
             <div class="inputs">
               <form action="">
-                <input type="text" class="fifty" />
-                <input type="text" class="fifty" />
-                <input type="text" class="hundred" />
-                <input type="text" class="seventy" />
-                <input type="text" class="thirty" />
-                <input type="text" class="forty" />
-                <input type="text" class="fifty" />
-                <input type="text" class="sixty" />
+                <input type="text" class="fifty" value="Address: {{finalprofiletutorder.inputaddresst}}"  />
+                <input type="text" class="fifty" value="Courses I Teach: {{finalprofiletutorder.inputcoursest}}"  />
+                <input type="text" class="hundred" value="My Experience: {{finalprofiletutorder.inputexperiencet}}"  />
+                <input type="text" class="seventy" value="Age: {{finalprofiletutorder.inputaget}}"  />
+                <input type="text" class="thirty" value="Organization: {{finalprofiletutorder.inputorgt}}" />
+                <input type="text" class="forty" value="Timings: {{finalprofiletutorder.inputtimet}}" />
+                <input type="text" class="fifty" value="Seats: {{finalprofiletutorder.inputseatt}}" />
+                <input type="text" class="sixty" value="Mode: {{finalprofiletutorder.inputmodet}}" />
                 <br><br>
                 <center><button class="form-button">Save</button></center>
               </form>

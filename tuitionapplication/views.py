@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from tuitionapplication.models import Whywhyanalyzing, Actionclosure, Verifyactionclose, Adduser, Incidentreporting, Assigninvestigator, Specialanalyzing, Finalreport, Finaltutorprofile, Finalstudentprofile, Finalstudentregister
+from tuitionapplication.models import Finaltutorprofile, Finalstudentprofile, Finalstudentregister
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages

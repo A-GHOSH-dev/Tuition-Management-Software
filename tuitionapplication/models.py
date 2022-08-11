@@ -8,43 +8,55 @@
 from django.db import models
 
 
-class Actionclosure(models.Model):
-    actionclose_inc = models.OneToOneField('Incidentreporting', models.DO_NOTHING, primary_key=True)
-    actiondonebyname = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    actiontaken = models.CharField(max_length=1000, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    completiondate = models.DateField()
-    verify_email = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+class Finalstudentprofile(models.Model):
+    inputfirstnamestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputlastnamestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputemailstu = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputphonestu = models.DecimalField(max_digits=15, decimal_places=0)
+    inputtypestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputaddressstu = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputclassstu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputbranchstu = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputexperiencestu = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputagestu = models.IntegerField()
+    inputgenstu = models.CharField(max_length=10, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputtimestu = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputmodestu = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
 
     class Meta:
         managed = False
-        db_table = 'actionclosure'
+        db_table = 'Finalstudentprofile'
 
 
-class Adduser(models.Model):
-    addemp_id = models.IntegerField(primary_key=True)
-    addemail = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    addname = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    adddepartment = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    addsection = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    addrole = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    designation = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    addtraining = models.CharField(max_length=25, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    addphone = models.DecimalField(max_digits=15, decimal_places=0)
-    addpassword = models.CharField(max_length=25, db_collation='SQL_Latin1_General_CP1_CI_AS')
+class Finalstudentregister(models.Model):
+    registernewcontact = models.DecimalField(max_digits=15, decimal_places=0)
+    registernewemail = models.ForeignKey(Finalstudentprofile, models.DO_NOTHING, db_column='registernewemail')
+    studentnotetotutor = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
 
     class Meta:
         managed = False
-        db_table = 'adduser'
+        db_table = 'Finalstudentregister'
 
 
-class Assigninvestigator(models.Model):
-    incident = models.OneToOneField('Incidentreporting', models.DO_NOTHING, primary_key=True)
-    nameassignedinvestigator = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    emailassignedinvestigator = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+class Finaltutorprofile(models.Model):
+    inputfirstnamet = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputlastnamet = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputemailt = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputphonet = models.DecimalField(max_digits=15, decimal_places=0)
+    inputtypet = models.CharField(max_length=25, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputaddresst = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputpict = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputcoursest = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputexperiencet = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputaget = models.DecimalField(max_digits=15, decimal_places=0)
+    inputorgt = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputtimet = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    inputseatt = models.DecimalField(max_digits=15, decimal_places=0)
+    inputmodet = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
 
     class Meta:
         managed = False
-        db_table = 'assigninvestigator'
+        db_table = 'Finaltutorprofile'
 
 
 class AuthGroup(models.Model):
@@ -159,92 +171,3 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
-
-class Finalreport(models.Model):
-    reinc = models.OneToOneField('Incidentreporting', models.DO_NOTHING, primary_key=True)
-    reinc_type = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    summary = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    inv_name = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    inv_id = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    re_date = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    re_time = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    re_loc = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    inv_vic_name = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    injuries = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    fatalities = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    vic_fat_desc = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    rca = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    imc = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    rtc = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    ca = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    cap = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    cad = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    pa = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    pap = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    pat = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    ma = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    intensity = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'finalreport'
-
-
-class Incidentreporting(models.Model):
-    reportingincident_id = models.IntegerField(primary_key=True)
-    datereport = models.DateField()
-    timereport = models.TimeField()
-    reportedby = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    dateincident = models.DateField()
-    timeincident = models.TimeField()
-    locationincident = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    incidentdesc = models.CharField(max_length=1000, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    incidentaction = models.CharField(max_length=1000, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    victimname = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    victimrole = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    victimemp_id = models.IntegerField()
-    victimcon_id = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    assign_inv_email = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'incidentreporting'
-
-
-class Specialanalyzing(models.Model):
-    spe_inc = models.OneToOneField(Incidentreporting, models.DO_NOTHING, primary_key=True)
-    imm_cause_unsafe_ac = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    imm_cause_unsafe_con = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    root_cause_human_fac = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    root_cause_org_fac = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'specialanalyzing'
-
-
-class Verifyactionclose(models.Model):
-    ver_action_close_inc = models.OneToOneField(Incidentreporting, models.DO_NOTHING, primary_key=True)
-    inc_closeoropen = models.CharField(max_length=10, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    remarks = models.CharField(max_length=500, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    assigner_mail_final = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'verifyactionclose'
-
-
-class Whywhyanalyzing(models.Model):
-    whyinc = models.OneToOneField(Incidentreporting, models.DO_NOTHING, primary_key=True)
-    ps = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    why1 = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    why2 = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    why3 = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    why4 = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    why5 = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    rc = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
-
-    class Meta:
-        managed = False
-        db_table = 'whywhyanalyzing'

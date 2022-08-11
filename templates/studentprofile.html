@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
   {% load static %}
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/studentprofilestyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tutorprofilestyle.css' %}" />
     <title>Student Profile</title>
   </head>
 
@@ -17,10 +18,13 @@
       <nav>
         <h1>TUTFINDER</h1>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">DashBoard</a></li>
-          <li><a href="contact.html">Connect</a></li>
-          <img class="avatar" src="https://picsum.photos/200/200" alt="" />
+          <li><a href="/index">Home</a></li>
+          {% for storders in finalprofilestudorder %}
+          <li><a href="studentdashboardpage/{{storders.inputemailt}}">DashBoard</a></li>
+          <li><a href="studentprofile/{{storders.inputemailstu}}">Profile </a></li>
+          {% endfor %}
+          <li><a href="/logout">LogOut</a></li>
+          <img class="avatar" src="https://static.vecteezy.com/system/resources/previews/000/350/738/original/vector-male-student-icon.jpg" alt="" />
         </ul>
       </nav>
       <div class="parent">
@@ -29,32 +33,38 @@
             <div class="up">
               <img
                 class="avatar-l"
-                src="https://picsum.photos/200/200"
+                src="https://static.vecteezy.com/system/resources/previews/000/350/738/original/vector-male-student-icon.jpg"
                 alt=""
               />
+
               <div class="line"></div>
             </div>
             <div class="down">
               <div class="cred">
-                <h3>Lorem ipsum</h3>
-                <h6>@lorem5</h6>
+                <br><br>
+                <h3>{{finalprofilestudorder.inputfirstnamestu}} {{finalprofilestudorder.inputlastnamestu}}</h3>
+                <h4><center> {{finalprofilestudorder.inputemailstu}}</h4>
+                  <h4><center> {{finalprofilestudorder.inputphonestu}}</h4>
+                    <h4><center> {{finalprofilestudorder.inputtypestu}}</h4>
+
               </div>
               <div class="space"></div>
-              <button>Edit Profile</button>
+              <button class="editButton">Edit Profile</button>
               <div class="space-2"></div>
             </div>
           </div>
           <div class="right">
             <div class="inputs">
               <form action="">
-                <input type="text" class="fifty" />
-                <input type="text" class="fifty" />
-                <input type="text" class="hundred" />
-                <input type="text" class="seventy" />
-                <input type="text" class="thirty" />
-                <input type="text" class="thirty" />
-                <input type="text" class="thirty" />
-                <input type="text" class="thirty" />
+                <input type="text" class="fifty" value="Address: {{finalprofilestudorder.inputaddressstu}}"  />
+                <input type="text" class="fifty" value="Class/Year: {{finalprofilestudorder.inputclassstu}}"  />
+                <input type="text" class="hundred" value="Branch/Stream: {{finalprofilestudorder.inputbranchstu}}"  />
+                <input type="text" class="seventy" value="Experience: {{finalprofilestudorder.inputexperiencestu}}"  />
+                <input type="text" class="thirty" value="Age: {{finalprofilestudorder.inputagestu}}" />
+                <input type="text" class="forty" value="Gender: {{finalprofilestudorder.inputgenstu}}" />
+                <input type="text" class="fifty" value="Timings: {{finalprofilestudorder.inputtimestu}}" />
+                <input type="text" class="sixty" value="Mode: {{finalprofilestudorder.inputmodestu}}" />
+                <br><br>
                 <center><button class="form-button">Save</button></center>
               </form>
             </div>
