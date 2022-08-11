@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from tuitionapplication.models import Whywhyanalyzing, Actionclosure, Verifyactionclose, Adduser, Incidentreporting, Assigninvestigator, Specialanalyzing, Finalreport, Finaltutorprofile, Finalstudentprofile
+from tuitionapplication.models import Whywhyanalyzing, Actionclosure, Verifyactionclose, Adduser, Incidentreporting, Assigninvestigator, Specialanalyzing, Finalreport, Finaltutorprofile, Finalstudentprofile, Finalstudentregister
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -482,7 +482,7 @@ def actionandreport(request):
 #######################################################################################
 #######################################################################################
 
-
+##############TUTION MANAGEMENT SYSTEM#############
 
 
 def index(request):
@@ -564,7 +564,7 @@ def handleLoginT(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Successfully logged in")
-            return redirect('tutordashboard')
+            return redirect('tutordashboard/qk')
         else:
             messages.error(request, "Invalid Credentials")
             return redirect('handleLoginT')
@@ -583,7 +583,7 @@ def handleLoginS(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Successfully logged in")
-            return redirect('studentdashboardpage')
+            return redirect('studentdashboardpage/<kk>')
         else:
             messages.error(request, "Invalid Credentials")
             return redirect('handleLoginS')
@@ -628,9 +628,12 @@ def tutorprofile(request, pk):
     #return HttpResponse("This is my home page")
     #return render(request, 'tutorprofile.html')
 
-def tutordashboard(request):
+def tutordashboard(request, qk):
     #return HttpResponse("This is my home page")
-    return render(request, 'tutordashboard.html')
+    #return render(request, 'tutordashboard.html')
+    finalprofiletutorder = Finaltutorprofile.objects.get(inputemailt=qk)
+    print(finalprofiletutorder)
+    return render(request, 'tutorprofile.html', {"finalprofiletutorder":finalprofiletutorder})
 
 def studcreateprofile(request):
     finalprofilestudorder = Finalstudentprofile.objects.all()
@@ -664,13 +667,30 @@ def studentprofile(request, ik):
     #return HttpResponse("This is my home page")
     #return render(request, 'tutorprofile.html')
 
-def studentdashboardpage(request):
+def studentdashboardpage(request, kk):
     #return HttpResponse("This is my home page")
-    return render(request, 'studentdashboardpage.html')
+    #return render(request, 'studentdashboardpage.html')
+    finalprofiletutorder = Finaltutorprofile.objects.get(inputemailt=kk)
+    print(finalprofiletutorder)
+    return render(request, 'tutorprofile.html', {"finalprofiletutorder":finalprofiletutorder})
 
 def registernewcourse(request):
     #return HttpResponse("This is my home page")
-    return render(request, 'registernewcourse.html')
+    #return render(request, 'registernewcourse.html')
+    finalregisterstudorder = Finalstudentregister.objects.all()
+    if request.method=="POST":
+        registernewcontact=request.POST['registernewcontact']
+        registernewemail=request.POST['registernewemail']
+        studentnotetotutor=request.POST['studentnotetotutor']
+        
+        finalstudregisterdata = Finalstudentregister(registernewcontact=registernewcontact, registernewemail=registernewemail, studentnotetotutor=studentnotetotutor)  
+
+        finalstudregisterdata.save()
+        messages.success(request, "Course Registered Successfully")
+              
+    return render(request,"registernewcourse.html",{"Fstudregisterorders":finalregisterstudorder})
+
+
 
 def editprofilestudent(request):
     #return HttpResponse("This is my home page")

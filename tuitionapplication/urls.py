@@ -41,20 +41,20 @@ urlpatterns = [
     
     
     path('', views.index, name='index'),
-    path('studentdashboardpage', views.studentdashboardpage, name='studentdashboardpage'),
-    path('studentprofile', views.studentprofile, name='studentprofile'),
+    path('studentdashboardpage/<str:kk>', views.studentdashboardpage, name='studentdashboardpage'),
+    path('studentprofile/<str:ik>', views.studentprofile, name='studentprofile'),
     path('tutlogin', views.handleLoginT, name='handleLoginT'),
     path('studlogin', views.handleLoginS, name='handleLoginS'),
     path('logout', views.handleLogout, name='handleLogout'),
-    path('tutordashboard', views.tutordashboard, name='tutordashboard'),
-    path('tutorprofile', views.tutorprofile, name='tutorprofile'),
+    path('tutordashboard/<str:qk>', views.tutordashboard, name='tutordashboard'),
+    path('tutorprofile/<str:pk>', views.tutorprofile, name='tutorprofile'),
     path('tutsignup', views.handleSignupT, name='handleSignupT'),
     path('studsignup', views.handleSignupS, name='handleSignupS'),
     path('registernewcourse', views.registernewcourse, name='registernewcourse'),
     path('editprofilestudent', views.editprofilestudent, name='editprofilestudent'),
     path('editprofiletutor', views.editprofiletutor, name='editprofiletutor'),
     path('tutcreateprofile', views.tutcreateprofile, name='tutcreateprofile'),
-    path('studcreateprofile', views.studcreateprofile, name='studcreateprofile')
+    path('studcreateprofile', views.studcreateprofile, name='studcreateprofile'),
     
 
 ]

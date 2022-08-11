@@ -1,30 +1,39 @@
---CREATE DATABASE TutionManagementSoftware
+CREATE DATABASE TutionManagementSoftware
 use TutionManagementSoftware
 
-create table signup(
-name varchar(50) not null, --Name
-email varchar(100) not null , --Email address
-phone numeric(15) not null, --Phone
-password varchar(25) not null, --Password
-category varchar(25) not null, --Category
-primary key(email,phone)
+create table Finaltutorprofile(
+inputfirstnamet varchar(50) not null, --Name
+inputlastnamet varchar(50) not null, --Name
+inputemailt varchar(100) not null , --Email address
+inputphonet numeric(15) not null, --Phone
+inputtypet varchar(25) not null, --Category
+inputaddresst varchar(100) not null , --Email address
+inputpict varchar(100) not null , --Email address
+inputcoursest varchar(100) not null , --Email address
+inputexperiencet varchar(100) not null , --Email address
+inputaget numeric(15) not null, --Phone
+inputorgt varchar(100) not null , --Email address
+inputtimet varchar(100) not null , --Email address
+inputseatt numeric(15) not null, --Phone
+inputmodet varchar(50) not null, --Name
+primary key(inputemailt,inputphonet)
 );
 
-create table tutorprofile(
-tutorname varchar(50) not null, --TutorName
-tutoremail varchar(100) primary key, --TutorEmail address
-tutorphone numeric(15) not null, --Phone
-tutoraddress varchar(200) not null, --address
-tutorpicturelink varchar(100) not null, --picturelink
-cources varchar(50) not null, --Courses
-experience int not null, --experience
-age int not null, --age
-organisationlink varchar(100) , --organisationlink
-linkedin varchar(100) , --linkedinlink
-tutortimings time not null, --timings
-seats int not null, --seats
-mode varchar(50) not null, --modeofteaching
-constraint fk_emailphone foreign key(tutoremail, tutorphone) references signup(email, phone)
+create table Finalstudentprofile(
+inputfirstnamestu varchar(50) not null, --TutorName
+inputlastnamestu varchar(50) not null, --TutorName
+inputemailstu varchar(100) not null, --TutorEmail address
+inputphonestu numeric(15) not null, --Phone
+inputtypestu varchar(50) not null, --Courses
+inputaddressstu varchar(200) not null, --address
+inputclassstu varchar(50) not null, --Courses
+inputbranchstu varchar(100) , --organisationlink
+inputexperiencestu varchar(100) , --organisationlink
+inputagestu int not null, --age
+inputgenstu varchar(10) not null, --organisationlink
+inputtimestu varchar(100) not null, --organisationlink
+inputmodestu varchar(100) not null, --linkedinlink
+primary key(inputemailstu,inputphonestu)
 );
 
 create table studentprofile(
