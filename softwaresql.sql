@@ -27,8 +27,8 @@ inputphonestu numeric(15) not null, --Phone
 inputtypestu varchar(50) not null, --Courses
 inputaddressstu varchar(200) not null, --address
 inputclassstu varchar(50) not null, --Courses
-inputbranchstu varchar(100) , --organisationlink
-inputexperiencestu varchar(100) , --organisationlink
+inputbranchstu varchar(100) not null, --organisationlink
+inputexperiencestu varchar(100) not null, --organisationlink
 inputagestu int not null, --age
 inputgenstu varchar(10) not null, --organisationlink
 inputtimestu varchar(100) not null, --organisationlink
@@ -36,23 +36,9 @@ inputmodestu varchar(100) not null, --linkedinlink
 primary key(inputemailstu,inputphonestu)
 );
 
-create table studentprofile(
-studentname varchar(50) not null, --StudentName
-studentemail varchar(100) primary key, --StudentEmail address
-studentphone numeric(15) not null, --Phone
-studentaddress varchar(200) not null, --address
-studentpicturelink varchar(100) not null, --picturelink
-class int not null, --class
-school varchar(100) not null, --school
-studenttimings time not null --timings
-constraint fk_emailphone1 foreign key(studentemail, studentphone) references signup(email, phone)
-);
-
-create table registercourses(
-message varchar(500), --message_to_tutor
-requirements varchar(100), --requirements_from_student
-studentemail varchar(100),
-tutoremail varchar(100),
-constraint fk_emailstudent foreign key(studentemail) references studentprofile(studentemail),
-constraint fk_emailtutor foreign key(tutoremail) references tutorprofile(tutoremail)
+create table Finalstudentregister(
+registernewcontact numeric(15) not null, --StudentName
+registernewemail varchar(100) not null, --StudentEmail address
+studentnotetotutor varchar(200) not null, --address
+constraint fk_emailphone foreign key(registernewemail, registernewcontact) references Finalstudentprofile(inputemailstu, inputphonestu)
 );
