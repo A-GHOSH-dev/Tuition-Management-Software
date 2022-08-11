@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+
+      <img src="{% static 'images/signup.gif' %}" class="img-fluid" alt="...">
+      <form action="/signup" method="POST">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="emp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" name="emp_id" id="emp_id" aria-describedby="emp_idHelp">
+    
+  </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Put your organization email.</div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" name="name" id="name" aria-describedby="nameHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="Department" class="form-label">Department</label>
+      <input type="text" class="form-control" name="Department" id="Department">
+     
+    </div>
+
+    <div class="mb-3">
+      <label for="FactoryNumber" class="form-label">FactoryNumber</label>
+      <input type="text" class="form-control" name="FactoryNumber" id="FactoryNumber">
+     
+    </div>
+    <div class="mb-3">
+      <label for="role_of_user" class="form-label">Role</label>
+      <input type="text" class="form-control" name="role_of_user" id="role_of_user">
+     
+    </div>
+
+    <div class="mb-3">
+      <label for="user_designation" class="form-label">Designation</label>
+      <input type="text" class="form-control" name="user_designation" id="user_designation">
+     
+    </div>
+
+    <div class="mb-3">
+      <label for="user_training" class="form-label">Training Recieved? (Yes/No) - Training Details</label>
+      <input type="text" class="form-control" name="user_training" id="user_training">
+     
+    </div>
+
+
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="number" class="form-control" name="phone" id="phone">
+     
+    </div>
+
+
+    <div class="mb-3">
+      <label for="password1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password1" id="password1" aria-describedby="passwordHelpBlock">
+      <div id="passwordHelpBlock" class="form-text">
+        Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password2" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" name="password2" id="password2">
+      
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

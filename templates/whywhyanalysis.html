@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/whywhyanalysis" method="POST">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="whyinc_id" class="form-label">Incident ID</label>
+        <input type="text" class="form-control" name="whyinc_id" id="whyinc_id" aria-describedby="emp_idHelp">
+        
+      </div>
+
+    <div class="input control-group after-add-more">
+        <div class="mb-3">
+            <label for="ps" class="form-label">Problem Statements</label>
+            <input type="text" class="form-control" name="ps" id="ps" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="why1" class="form-label">Why 1</label>
+            <input type="text" class="form-control" name="why1" id="why1" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="why2" class="form-label">Why 2</label>
+            <input type="text" class="form-control" name="why2" id="why2" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="why3" class="form-label">Why 3</label>
+            <input type="text" class="form-control" name="why3" id="why3" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="why4" class="form-label">Why 4</label>
+            <input type="text" class="form-control" name="why4" id="why4" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="why5" class="form-label">Why 5</label>
+            <input type="text" class="form-control" name="why5" id="why5" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="rc" class="form-label">Root Causes</label>
+            <input type="text" class="form-control" name="rc" id="rc" aria-describedby="emp_idHelp">
+            
+          </div>
+ 
+    
+    <div class="input-group-btn"> 
+      <button class="btn btn-success add-more" type="submit"><i class="glyphicon glyphicon-plus"></i> Submit</button>
+    </div>
+  </div>
+
+
+  </form>
+
+
+
+  </div>
+  </main>
+
+  
+{% endblock body %}

@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/finalinvestigationreport" method="POST">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="reinc_id" class="form-label">Incident ID</label>
+        <input type="text" class="form-control" name="reinc_id" id="reinc_id" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="reinc_type" class="form-label">Incident Type</label>
+        <input type="text" class="form-control" name="reinc_type" id="reinc_type" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="re_date" class="form-label">Incident Date</label>
+        <input type="date" class="form-control" name="re_date" id="re_date" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="re_time" class="form-label">Incident Time</label>
+        <input type="time" class="form-control" name="re_time" id="re_time" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="re_loc" class="form-label">Incident Location</label>
+        <input type="text" class="form-control" name="re_loc" id="re_loc" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="inv_name" class="form-label">Investigator Name</label>
+        <input type="text" class="form-control" name="inv_name" id="inv_name" aria-describedby="emp_idHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="inv_id" class="form-label">Investigator ID</label>
+        <input type="text" class="form-control" name="inv_id" id="inv_id" aria-describedby="emp_idHelp">
+        
+      </div>
+
+    <div class="input control-group after-add-more">
+        <div class="mb-3">
+            <label for="summary" class="form-label">Summary of Incident</label>
+            <textarea type="text" class="form-control" name="summary" id="summary" aria-describedby="emp_idHelp"></textarea>
+            
+          </div>
+          <div class="input control-group after-add-more">
+            <div class="mb-3">
+                <label for="inv_vic_name" class="form-label">Victim Names and IDs</label>
+                <textarea type="text" class="form-control" name="inv_vic_name" id="inv_vic_name" aria-describedby="emp_idHelp"></textarea>
+                
+              </div>
+              <div class="input control-group after-add-more">
+                <div class="mb-3">
+                    <label for="fatalities" class="form-label">Number of Fatalities </label>
+                    <textarea type="text" class="form-control" name="fatalities" id="fatalities" aria-describedby="emp_idHelp"></textarea>
+                    
+                  </div>
+                  <div class="input control-group after-add-more">
+                    <div class="mb-3">
+                        <label for="injuries" class="form-label">Number of Injuries </label>
+                        <textarea type="text" class="form-control" name="injuries" id="injuries" aria-describedby="emp_idHelp"></textarea>
+                        
+                      </div>
+                      <div class="input control-group after-add-more">
+                        <div class="mb-3">
+                            <label for="vic_fat_desc" class="form-label">Summary of Victims, Injuries, Fatalities</label>
+                            <textarea type="text" class="form-control" name="vic_fat_desc" id="vic_fat_desc" aria-describedby="emp_idHelp"></textarea>
+                            
+                          </div>
+       <!--   <div class="mb-3">
+            <label for="img" class="form-label">Image Upload</label>
+            <input type="file" class="form-control" name="img" id="img" aria-describedby="emp_idHelp">
+            
+          </div>-->
+          <div class="mb-3">
+            <label for="rca" class="form-label">RCA Tool used</label>
+            <input type="text" class="form-control" name="rca" id="rca" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="imc" class="form-label">Immediate Causes</label>
+            <input type="text" class="form-control" name="imc" id="imc" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="rtc" class="form-label">Root Causes</label>
+            <input type="text" class="form-control" name="rtc" id="rtc" aria-describedby="emp_idHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="ca" class="form-label">Corrective action</label>
+            <input type="text" class="form-control" name="ca" id="ca" placeholder="Correction action">
+            <input type="email" class="form-control" name="cap" id="cap" placeholder="Corrective action responsible person">
+            <input type="date" class="form-control" name="cad" id="cad" placeholder="Corrective action target date">
+            
+            
+          </div>
+          <div class="mb-3">
+            <label for="pa" class="form-label">Preventive action</label>
+            <input type="text" class="form-control" name="pa" id="pa" placeholder="Preventive action">
+            <input type="email" class="form-control" name="pap" id="pap" placeholder="Preventive action responsible person">
+            <input type="date" class="form-control" name="pat" id="pat" placeholder="Preventive action target date">
+            
+            
+          </div>
+          <div class="mb-3">
+            <label for="ma" class="form-label">Medical actions</label>
+            <input type="text" class="form-control" name="ma" id="ma" placeholder="Medical action">
+            
+            
+            
+          </div>
+
+          
+          <div class="mb-3">
+            <img src="https://th.bing.com/th/id/R.a5ab013b4584bb04994f099317ae287b?rik=0%2fbaMuAomjrgAA&riu=http%3a%2f%2fwww.arriscar.com.au%2fwp-content%2fuploads%2f2017%2f02%2f4x4-Matrix-2-660x440.gif&ehk=HDMwtYS3pwQuzTbdAK%2flbC3i1%2bxP3IaVJ2vI75n1Wys%3d&risl=&pid=ImgRaw&r=0
+            " class="form-label">
+           
+            
+          </div>
+          <div class="mb-3">
+            <label for="intensity" class="form-label">Intensity/Level of Incident using Risk Matrix</label>
+            <input type="number" class="form-control" name="intensity" id="intensity" aria-describedby="emp_idHelp">
+            
+          </div>
+    
+    <div class="input-group-btn"> 
+      <button class="btn btn-success add-more" type="submit"><i class="glyphicon glyphicon-plus"></i> Submit</button>
+    </div>
+  </div>
+
+
+  </form>
+
+
+
+  </div>
+  </main>
+{% endblock body %}

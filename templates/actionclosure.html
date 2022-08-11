@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/actionclosure" method="POST">
+        {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="actionclose_inc_id" class="form-label">Incident ID</label>
+        <input type="number" class="form-control" name="actionclose_inc_id" id="actionclose_inc_id">
+       
+      </div>
+  <div class="mb-3">
+      <label for="actiondonebyname" class="form-label">Action Done by?</label>
+      <input type="text" class="form-control" name="actiondonebyname" id="actiondonebyname">
+      
+    </div>
+    <div class="mb-3">
+      <label for="actiontaken" class="form-label">What actions have been taken?</label>
+      <input type="text" class="form-control" name="actiontaken" id="actiontaken" aria-describedby="emailHelp">
+      
+    </div>
+
+    <div class="mb-3">
+        <label for="completiondate" class="form-label">Date of Completion of Action</label>
+        <input type="date" class="form-control" name="completiondate" id="completiondate" aria-describedby="emailHelp">
+        
+      </div>
+      <div class="mb-3">
+        <label for="verify_email" class="form-label">Verifier's email</label>
+        <input type="email" class="form-control" name="verify_email" id="verify_email" aria-describedby="emailHelp">
+        
+      </div>
+    
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

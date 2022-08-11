@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="{% static 'css/stylepdf.css' %}">
+
+    <title>Report</title>
+</head>
+
+<body>
+    <div class="my-5 page" size="A4">
+        <div class="p-5">
+            <section class="top-content bb d-flex justify-content-between">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+                </div> 
+                <div class="top-left">
+                    <div class="graphic-path">
+                        <p>Incident Report</p>
+                    </div>
+                    <div class="position-relative">
+                        <p>Incident ID: <span>{{finalreportorder.reinc_id}}</span></p>
+                        <p>Ivestigator ID: <span>{{finalreportorder.inv_id}}</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="store-user mt-5">
+                <div class="col-10">
+                    <div class="row bb pb-3">
+                        <div class="col-7">
+                            <p>Incident Type</p>
+                            <h2>{{finalreportorder.reinc_type}}</h2>
+                            
+                            
+                        </div>
+                        <div class="col-5">
+                            <p>Investigator</p>
+                            <h2>{{finalreportorder.inv_name}}</h2>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="row extra-info pt-3">
+                        <div class="col-7">
+                            <p>RCA Tool used: <span>{{finalreportorder.rca}}</span></p>
+                            <p>Intensity/Level of Incident: <span>{{finalreportorder.rca}}</span></p>
+                        </div>
+                        <div class="col-5">
+                            <p>Incident Date: <span>{{finalreportorder.re_date}}</span></p>
+                            <p>Incident Time: <span>{{finalreportorder.re_time}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="product-area mt-4">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Location</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.re_loc}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Immediate Causes</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.imc}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Root Causes</p>
+                                       
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.rtc}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Victim Names</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.inv_vic_name}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Number of Injuries</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.injuries}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Number of Fatalities</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.fatalities}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Preventive Actions</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.pa}} | {{finalreportorder.pap}} | {{finalreportorder.pat}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Corrective Actions</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.ca}} | {{finalreportorder.cap}} | {{finalreportorder.cad}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    
+                                    <div class="media-body">
+                                        <p class="mt-0 title">Medical Actions</p>
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{finalreportorder.ma}}</td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="balance-info">
+                <div class="row">
+                    <div class="col-8">
+                        <p class="m-0 font-weight-bold"> Summary of Incident: </p>
+                        <p>{{finalreportorder.summary}}</p>
+                    </div>
+                   
+                </div>
+            </section>
+            <section class="balance-info">
+                <div class="row">
+                    <div class="col-8">
+                        <p class="m-0 font-weight-bold"> Victims/ Fatalities Description: </p>
+                        <p>{{finalreportorder.vic_fat_desc}}</p>
+                    </div>
+                   
+                </div>
+            </section>
+
+        
+         
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body></html>

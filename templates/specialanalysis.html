@@ -1,0 +1,282 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/specialanalysis" method="POST">
+        {% csrf_token %}
+    <div class="mb-3">
+        <label for="spe_inc_id" class="form-label">Incident ID</label>
+        <input type="text" class="form-control" name="spe_inc_id" id="spe_inc_id" aria-describedby="emp_idHelp">
+        
+      </div>
+    
+    <div class="input control-group after-add-more">
+        <div class="mb-3">
+            <label for="icua" class="form-label">Immediate Causes (Unsafe Actions)</label>
+            <label for="icua" class="form-label">For Example:</label>
+            <div class="form-check">
+             
+              <label class="form-check-label" for="flexCheckDefault">
+                 Violation of SOP Rules
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label" for="flexCheckDefault">
+                 Improper PPE
+              </label>
+            </div>
+            <div class="form-check">
+          
+              <label class="form-check-label" for="flexCheckDefault">
+                Improper Method of work
+              </label>
+            </div>
+            <div class="form-check">
+           
+              <label class="form-check-label" for="flexCheckDefault">
+                 Improper use of Tools or equipments
+              </label>
+            </div>
+            <div class="form-check">
+           
+              <label class="form-check-label" for="flexCheckDefault">
+                 Inadequate awareness
+              </label>
+            </div>
+            <div class="form-check">
+            
+              <label class="form-check-label" for="flexCheckDefault">
+                 Inadequate safety guards
+              </label>
+            </div>
+              
+          <div class="form-check">
+
+            <label class="form-check-label" for="flexCheckDefault">
+               Poor judgement
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+              Attention Destracted
+            </label>
+          </div>
+
+            <input type="text" class="form-control" name="imm_cause_unsafe_ac" id="imm_cause_unsafe_ac" aria-describedby="emp_idHelp">
+            
+          </div>
+         
+
+          <div class="mb-3">
+            <label for="why1" class="form-label">Immediate Causes (Unsafe Conditions)</label>
+            <label for="why1" class="form-label">For Example:</label>
+             <div class="form-check">
+           
+            <label class="form-check-label" for="flexCheckDefault">
+               Defective Machines/tools
+            </label>
+          </div>
+   
+         
+          <div class="form-check">
+      
+            <label class="form-check-label" for="flexCheckDefault">
+               Improper PPE
+            </label>
+          </div>
+          <div class="form-check">
+     
+            <label class="form-check-label" for="flexCheckDefault">
+              Inadequate safety warning system
+            </label>
+          </div>
+          <div class="form-check">
+     
+            <label class="form-check-label" for="flexCheckDefault">
+               Defective structure
+            </label>
+          </div>
+          <div class="form-check">
+   
+            <label class="form-check-label" for="flexCheckDefault">
+               Uncontrolled energised electrical system
+            </label>
+          </div>
+          <div class="form-check">
+  
+            <label class="form-check-label" for="flexCheckDefault">
+               Inadequate safety guards
+            </label>
+          </div>
+          <div class="form-check">
+      
+            <label class="form-check-label" for="flexCheckDefault">
+               Fire
+            </label>
+          </div>
+          <div class="form-check">
+   
+            <label class="form-check-label" for="flexCheckDefault">
+              Uncontrolled Radiation
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+              Uncontrolled Hazardous Chemical
+            </label>
+          </div>
+          <div class="form-check">
+
+            <label class="form-check-label" for="flexCheckDefault">
+              Uncontrolled Noise
+            </label>
+          </div>
+          <div class="form-check">
+   
+            <label class="form-check-label" for="flexCheckDefault">
+              Unsafe surface causing slip/trip/fall
+            </label>
+          </div>
+          <div class="form-check">
+        
+            <label class="form-check-label" for="flexCheckDefault">
+              Inadequate workplace- space, temperature, ventilation, layout
+            </label>
+          </div>
+
+          
+          <input type="text" class="form-control" name="imm_cause_unsafe_con" id="imm_cause_unsafe_con" aria-describedby="emp_idHelp">
+        </div>
+
+
+
+
+
+          <div class="mb-3">
+            <label for="why2" class="form-label">Root Causes (Human Factors)</label>
+           
+            
+         
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+               Physical Limitations- Vision, Hearing, Sensory, Movement
+            </label>
+          </div>
+          <div class="form-check">
+  
+            <label class="form-check-label" for="flexCheckDefault">
+               Fatigue tiredness
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+              Drug Alcohol
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+               Mental Disturbance fear or phobia
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+               Improper behaviour reported in past
+            </label>
+          </div>
+          <div class="form-check">
+
+            <label class="form-check-label" for="flexCheckDefault">
+               Percieved Haste
+            </label>
+          </div>
+          <div class="form-check">
+  
+            <label class="form-check-label" for="flexCheckDefault">
+               Inadequate Skill
+            </label>
+          </div>
+    
+          <input type="text" class="form-control" name="root_cause_human_fac" id="root_cause_human_fac" aria-describedby="emp_idHelp">
+        </div>
+
+
+
+
+
+
+          <div class="mb-3">
+            <label for="why3" class="form-label">Root Causes (Organizational Factors)</label>
+         
+            
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+               Improper Training and Education
+            </label>
+          </div>
+          <div class="form-check">
+    
+            <label class="form-check-label" for="flexCheckDefault">
+               Inadequate CAPA
+            </label>
+          </div>
+          <div class="form-check">
+  
+            <label class="form-check-label" for="flexCheckDefault">
+              Inadequate Risk Assesment
+            </label>
+          </div>
+          <div class="form-check">
+    
+            <label class="form-check-label" for="flexCheckDefault">
+               Inadequate Work Permit system
+            </label>
+          </div>
+          <div class="form-check">
+ 
+            <label class="form-check-label" for="flexCheckDefault">
+               Improper Audit inspection testing monitoring
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label" for="flexCheckDefault">
+               Inadequate Change Management
+            </label>
+          </div>
+          <div class="form-check">
+    
+            <label class="form-check-label" for="flexCheckDefault">
+              Inadequate planning
+            </label>
+          </div>
+    
+          <input type="text" class="form-control" name="root_cause_org_fac" id="root_cause_org_fac" aria-describedby="emp_idHelp">
+           
+        </div>
+    
+    <div class="input-group-btn"> 
+      <button class="btn btn-success add-more" type="submit"><i class="glyphicon glyphicon-plus"></i> Submit</button>
+    </div>
+  </div>
+
+
+  </form>
+
+
+
+  </div>
+  </main>
+
+{% endblock body %}

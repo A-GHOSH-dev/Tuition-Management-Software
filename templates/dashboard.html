@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-3">
+  <div class="container-fluid">
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Dashboard</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white h-100">
+          <div class="card-body py-5">Low</div>
+          <a href="/low">
+          <div class="card-footer d-flex">
+            View Details
+            <span class="ms-auto">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </div></a>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-dark h-100">
+          <div class="card-body py-5">Moderate</div>
+          <a href="/moderate">
+          <div class="card-footer d-flex">
+            View Details
+            <span class="ms-auto">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </div></a>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card text-white h-100" style="background-color: rgb(221, 92, 6);">
+          <div class="card-body py-5">High</div>
+          <a href="/high">
+          <div class="card-footer d-flex">
+            View Details
+            <span class="ms-auto">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </div></a>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="card bg-danger text-white h-100">
+          <div class="card-body py-5">Extreme</div>
+          <a href="/extreme">
+          <div class="card-footer d-flex">
+            View Details
+            <span class="ms-auto">
+              <i class="bi bi-chevron-right"></i>
+            </span>
+          </div></a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
+          <div class="card-header">
+            <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+            
+          </div>
+          <div class="card-body">
+            <canvas id="myChart" width="400" height="400"></canvas>
+
+
+
+
+            <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [{% for chartdata in finalreportorder %} '{{ chartdata.reinc_type }}', {% endfor %}],
+                    datasets: [{
+                        label: 'Number of Incidents Vs Type of Incidents',
+                        data: [{% for chartdata in finalreportorder %} {{ chartdata.reinc_type|length }}, {% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            </script>
+            
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="card h-100">
+          <div class="card-header">
+            <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+            
+          </div>
+          <div class="card-body">
+            <canvas class="chart" width="400" height="400"></canvas>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</main>
+{% endblock body %}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="calendar.js" defer></script>
+    <link rel="stylesheet" href="filteringpagestyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <nav>
+        <h1>TUTFINDER</h1>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">DashBoard</a></li>
+          <li><a href="contact.html">Connect</a></li>
+          <img class="avatar" src="https://picsum.photos/200/200" alt="" />
+        </ul>
+      </nav>
+      <div class="main">
+        <div class="cal-container">
+          <div id="content">
+            <div id="container">
+              <div id="header">
+                <div id="monthDisplay"></div>
+                <div id="groupBtn">
+                  <button class="btn btn-info btn-lg previousBtn">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  </button>
+                  <button class="btn btn-info btn-lg nextBtn">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="weekdays"></div>
+              <div id="calendar"></div>
+            </div>
+          </div>
+          <center>
+            <div class="line"></div>
+          </center>
+          <br />
+          <div class="schedule">
+            <div class="card text-center">
+              <div class="card-title">
+                <h3>Schedule</h3>
+              </div>
+              <div class="card-body">
+                <input type="text" class="sch" />
+                <input type="text" class="sch" />
+                <input type="text" class="sch" />
+                <input type="text" class="sch" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-col">
+          <div class="section">
+            <div class="scard">
+              <img src="assets/abc.JPG" alt="" />
+              <center><h3>Add a Course</h3></center>
+            </div>
+            <div class="scard"></div>
+            <div class="scard"></div>
+          </div>
+          <div class="section2">
+            <div class="scard"></div>
+            <div class="scard"></div>
+            <div class="scard"></div>
+          </div>
+        </div>
+      </div>
+      <img class="arrow" src="assets/df.svg" alt="" />
+    </main>
+  </body>
+</html>

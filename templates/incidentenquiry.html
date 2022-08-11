@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center">All Incidents</h4>
+          <h4 class="text-center"><em>Total: {{verifyactionorder|length}}</em></h4> 
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th>Incident ID</th>
+					        <th>Date</th>
+					        <th>Type</th>
+					        <th>Department</th>
+					        <th>Intensity</th>
+					        <th>Status</th>
+                  <th>Report</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+							    {% for vorders in verifyactionorder %}
+								{% for forders in finalreportorder %}
+                {% for orders in incidentreportingorder %}
+                
+            
+					      <tr>
+					        <th scope="row" class="scope" >{{forders.reinc_id}}</th>
+					        <td>{{orders.dateincident}}</td>
+                  <td>{{forders.reinc_type}}</td>
+					        <td>{{orders.locationincident}}</td>
+					        <td>{{forders.intensity}}</td>
+					        <td>{{vorders.inc_closeoropen}}</td>
+					        <td><a href="finalreportpdf/{{forders.reinc_id}}" class="btn btn-primary">Report</a></td>
+					      </tr>
+					      {% endfor %}
+                {% endfor %}
+                {% endfor %}
+					      
+					      
+					      
+					      
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+{% endblock body %}

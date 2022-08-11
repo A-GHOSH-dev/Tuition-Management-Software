@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap5.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+
+
+
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+
+
+
+
+    <title>Incident Mangement Software</title>
+  </head>
+  <body>
+    <!-- top navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#sidebar"
+          aria-controls="offcanvasExample"
+        >
+          <span class="navbar-toggler-icon" data-bs-target="#sidebar"></span>
+        </button>
+        <a
+          class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+          href="/dashboard"
+          >Incident Mangement Software</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#topNavBar"
+          aria-controls="topNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="topNavBar">
+          <form class="d-flex ms-auto my-3 my-lg-0">
+           
+          </form>
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle ms-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >Welcome {{request.user}}
+                <i class="bi bi-person-fill"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="/logout">LogOut</a></li>
+                
+                
+              </ul>
+            </li>
+            {% else %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle ms-2"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                
+              </a>
+              
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- top navigation bar -->
+    <!-- offcanvas -->
+    <div
+      class="offcanvas offcanvas-start sidebar-nav bg-dark"
+      tabindex="-1"
+      id="sidebar"
+    >
+      <div class="offcanvas-body p-0">
+        <nav class="navbar-dark">
+          <ul class="navbar-nav">
+            <li>
+              <a href="/signup" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Add User</span>
+              </a>
+            </li>
+             
+            <li>
+              <a href="/login" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Login</span>
+              </a>
+            </li> 
+            {% if user.is_authenticated %}
+            <li>
+              <a href="/adduser" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Create Profile</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/profilepage" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>View All Worker Profile</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/incidentreport" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Incident Reporting</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/assignleadinvestigator" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Assign Lead Investigator</span>
+              </a>
+            </li> 
+            
+            <li>
+              <a href="/allincidentslist" class="nav-link px-3 active">
+                <span class="me-2"
+                  ><i class="bi bi-speedometer2"></i
+                ></span>
+                <span>All Incidents</span>
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="nav-link px-3 sidebar-link active"
+                data-bs-toggle="collapse"
+                href="#layouts"
+              >
+                <span class="me-2"><i class="bi bi-layout-split"></i></span>
+                <span>Root Cause Analysis</span>
+                <span class="ms-auto">
+                  <span class="right-icon">
+                    <i class="bi bi-chevron-down"></i>
+                  </span>
+                </span>
+              </a>
+              <div class="collapse" id="layouts">
+                <ul class="navbar-nav ps-3">
+  
+                  <li>
+                    <a href="/whywhyanalysis" class="nav-link px-3">
+                      <span class="me-2"
+                        ><i class="bi bi-speedometer2"></i
+                      ></span>
+                      <span>Why Why Analysis</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/specialanalysis" class="nav-link px-3">
+                      <span class="me-2"
+                        ><i class="bi bi-speedometer2"></i
+                      ></span>
+                      <span>Special Analysis</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/finalinvestigationreport" class="nav-link px-3">
+                      <span class="me-2"
+                        ><i class="bi bi-speedometer2"></i
+                      ></span>
+                      <span>Investigation Report</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+
+
+
+
+            <li>
+              <a href="/actionclosure" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Action Closure</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/actionandreport" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Actions and Reports</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/verifyactionclose" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>Incident Closure</span>
+              </a>
+            </li> 
+            <li>
+              <a href="/incidentenquiry" class="nav-link px-3 active">
+                <span class="me-2"><i class="bi bi-speedometer2"></i></span>
+                <span>All Incident List Report</span>
+              </a>
+            </li>  
+            {% else %}
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                
+              </a>
+            </li> 
+            <li>
+              <a href="#" class="nav-link px-3 active">
+               
+              </a>
+            </li> 
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                
+              </a>
+            </li> 
+            
+
+
+            <li>
+              <a
+                class="nav-link px-3 sidebar-link"
+                data-bs-toggle="collapse"
+                href="#layouts"
+              >
+               
+                <span class="ms-auto">
+                  <span class="right-icon">
+                    <i class="bi bi-chevron-down"></i>
+                  </span>
+                </span>
+              </a>
+              <div class="collapse" id="layouts">
+                <ul class="navbar-nav ps-3">
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                     
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                     
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link px-3">
+                      
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+
+
+
+
+
+            <li>
+              <a href="#" class="nav-link px-3 active">
+               
+              </a>
+            </li> 
+            <li>
+              <a href="#" class="nav-link px-3 active">
+               
+              </a>
+            </li> 
+            <li>
+              <a href="#" class="nav-link px-3 active">
+               
+              </a>
+            </li> 
+            <li>
+              <a href="#" class="nav-link px-3 active">
+                
+              </a>
+            </li>  
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+
+{% block body %}
+{% endblock body %}
+
+
+<footer class="bg-dark text-center text-lg-start">
+  
+  <!-- Copyright -->
+  <div class="text-center p-3 text-light">
+    Return to the 
+    <a class="text-light" href="/">HOME page</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<script src="{% static './js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+    <script src="{% static './js/jquery-3.5.1.js' %}"></script>
+    <script src="{% static './js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static './js/dataTables.bootstrap5.min.js' %}"></script>
+    <script src="{% static './js/script.js' %}"></script>
+
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/popper.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  
+
+
+
+  </body>
+</html>

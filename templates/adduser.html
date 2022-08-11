@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/adduser" method="POST">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="addemp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" name="addemp_id" id="addemp_id" aria-describedby="emp_idHelp">
+    
+  </div>
+    <div class="mb-3">
+      <label for="addemail" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="addemail" id="addemail" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Put your organization email.</div>
+    </div>
+    <div class="mb-3">
+      <label for="addname" class="form-label">Name</label>
+      <input type="text" class="form-control" name="addname" id="addname" aria-describedby="nameHelp">
+      
+    </div>
+    <div class="mb-3">
+      <label for="addDdepartment" class="form-label">Department</label>
+      <input type="text" class="form-control" name="adddepartment" id="adddepartment">
+     
+    </div>
+
+    <div class="mb-3">
+      <label for="addsection" class="form-label">Section</label>
+      <input type="text" class="form-control" name="addsection" id="addsection">
+     
+    </div>
+    <div class="mb-3">
+      <label for="designation" class="form-label">Designation</label>
+      <input type="text" class="form-control" name="designation" id="designation">
+     
+    </div>
+    <div class="mb-3">
+        <label for="addrole" class="form-label">Role</label>
+        <input type="text" class="form-control" name="addrole" id="addrole">
+       
+      </div>
+      <div class="mb-3">
+        <label for="addtraining" class="form-label">Training Recieved or not for the Role (Yes/No) - Training Details</label>
+        <input type="text" class="form-control" name="addtraining" id="addtraining">
+       
+      </div>
+
+
+    <div class="mb-3">
+      <label for="addphone" class="form-label">Phone</label>
+      <input type="number" class="form-control" name="addphone" id="addphone">
+     
+    </div>
+
+
+    <div class="mb-3">
+      <label for="addpassword" class="form-label">Password</label>
+      <input type="password" class="form-control" name="addpassword" id="addpassword" aria-describedby="passwordHelpBlock">
+      
+    </div>
+
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

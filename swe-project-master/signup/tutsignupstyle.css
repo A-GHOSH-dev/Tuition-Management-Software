@@ -1,0 +1,32 @@
+body{
+    background-color: #FFEDE1;
+}
+#yash {
+    
+     background: #FFEDE1;;
+}
+.form-control {
+    
+     background: #FFEDE1;;
+}
+.btn--primary{
+    background: #341D30(--color-primary);
+}
+
+.signup-form-container{
+    margin-top: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.btn-check:active+.btn, .btn-check:checked+.btn, .btn.active, .btn.show, .btn:active{
+    color: #341D30;
+    background-color: #341D30;
+    border
+}
+
+.btn-check, .btn, .btn{
+    width: 100%;
+    border-color: #341D30;
+    background-color: #341D30;
+}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/verifyactionclose" method="POST">
+        {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="ver_action_close_inc_id" class="form-label">Incident ID</label>
+        <input type="number" class="form-control" name="ver_action_close_inc_id" id="ver_action_close_inc_id">
+       
+      </div>
+  <div class="mb-3">
+      <label for="inc_closeoropen" class="form-label">Is the Incident Open/Close?</label>
+      <input type="text" class="form-control" name="inc_closeoropen" id="inc_closeoropen">
+      
+    </div>
+    <div class="mb-3">
+      <label for="remarks" class="form-label">Remarks</label>
+      <input type="text" class="form-control" name="remarks" id="remarks" aria-describedby="emailHelp">
+      
+    </div>
+
+    <div class="mb-3">
+      <label for="assigner_mail_final" class="form-label">Assigner's Email</label>
+      <input type="email" class="form-control" name="assigner_mail_final" id="assigner_mail_final" aria-describedby="emailHelp">
+      
+    </div>
+
+    
+    
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

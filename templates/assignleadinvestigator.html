@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <form action="/assignleadinvestigator" method="POST">
+        {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="incident_id" class="form-label">Incident ID</label>
+        <input type="number" class="form-control" name="incident_id" id="incident_id">
+       
+      </div>
+  <div class="mb-3">
+      <label for="nameassignedinvestigator" class="form-label">Name of Investigator Assigned</label>
+      <input type="text" class="form-control" name="nameassignedinvestigator" id="nameassignedinvestigator">
+      
+    </div>
+    <div class="mb-3">
+      <label for="emailassignedinvestigator" class="form-label">Email address of Investigator assigned</label>
+      <input type="email" class="form-control" name="emailassignedinvestigator" id="emailassignedinvestigator" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Put the organization email.</div>
+    </div>
+    
+    
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

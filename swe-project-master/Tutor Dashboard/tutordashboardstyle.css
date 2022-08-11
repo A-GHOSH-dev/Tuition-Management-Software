@@ -1,0 +1,123 @@
+@import url("https://rsms.me/inter/inter.css");
+html {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #ffede1;
+}
+nav {
+  background-color: #341d30;
+  position: relative;
+  z-index: 1;
+  padding: 0 50px;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #341d30;
+  box-shadow: 0px 7px 20px #341d30;
+  margin-bottom: 3rem;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+}
+li > a {
+  font-family: "Inter";
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 39px;
+  color: #d5b8d0;
+}
+li > a:hover {
+  color: #f5f5f5;
+}
+nav > h1 {
+  color: #fff;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+}
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+.avatar-l {
+  width: 200px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  height: 78vh;
+  width: 80vw;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+.left {
+  margin: 40px 50px;
+}
+
+.txt {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 39px;
+  margin-bottom: 1.5rem;
+}
+.col1 {
+  margin-right: 150px;
+}
+h4 {
+  margin: 0;
+}
+
+.btn {
+  height: 2rem;
+  margin-top: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  margin: 40px 50px;
+  display: flex;
+  flex-direction: row;
+}

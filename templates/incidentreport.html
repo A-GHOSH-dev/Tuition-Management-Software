@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <h4 class="text-center"><em>Total: {{incidentreportingorder|length}}</em></h4> 
+      <form action="/incidentreport" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="reportingincident_id" class="form-label">Incident ID</label>
+          <input type="text" class="form-control" name="reportingincident_id" id="reportingincident_id">
+          
+        </div>
+    <div class="mb-3">
+        <label for="datereport" class="form-label">Date of Reporting</label>
+        <input type="date" class="form-control" name="datereport" id="datereport">
+        
+      </div>
+      <div class="mb-3">
+        <label for="timereport" class="form-label">Time of Reporting</label>
+        <input type="time" class="form-control" name="timereport" id="timereport">
+        
+      </div>
+  <div class="mb-3">
+    <label for="reportedby" class="form-label">Incident Reported By</label>
+    <input type="text" class="form-control" name="reportedby" id="reportedby">
+    
+  </div>
+  <div class="mb-3">
+    <label for="dateincident" class="form-label">Date of Incident</label>
+    <input type="date" class="form-control" name="dateincident" id="dateincident">
+    
+  </div>
+  <div class="mb-3">
+    <label for="timeincident" class="form-label">Time of Incident</label>
+    <input type="time" class="form-control" name="timeincident" id="timeincident">
+    
+  </div>
+    <div class="mb-3">
+      <label for="locationincident" class="form-label">Location of Incident</label>
+      <input type="text" class="form-control" name="locationincident" id="locationincident">
+      
+    </div>
+    <div class="mb-3">
+      <label for="incidentdesc" class="form-label">Incient Description</label>
+      <textarea type="text" class="form-control" name="incidentdesc" id="incidentdesc"></textarea>
+      
+    </div>
+    <div class="mb-3">
+        <label for="incidentaction" class="form-label">Immediate actions taken & Current Status</label>
+        <textarea type="text" class="form-control" name="incidentaction" id="incidentaction"></textarea>
+        
+      </div>
+
+    <div class="mb-3">
+      <label for="victimname" class="form-label">Name of Victim (if Any)</label>
+      <input type="text" class="form-control" name="victimname" id="victimname">
+     
+    </div>
+    <div class="mb-3">
+        <label for="victimrole" class="form-label">Role of Victim (Employee/Contractor/Visitor/Others)</label>
+        <input type="text" class="form-control" name="victimrole" id="victimrole">
+       
+      </div>
+      <div class="mb-3">
+        <label for="victimemp_id" class="form-label">Employee ID (if employee)</label>
+        <input type="text" class="form-control" name="victimemp_id" id="victimemp_id">
+       
+      </div>
+      <div class="mb-3">
+        <label for="victimcon_id" class="form-label">Name of Contractor agency (if contractor)</label>
+        <input type="text" class="form-control" name="victimcon_id" id="victimcon_id">
+       
+      </div>
+      <div class="mb-3">
+        <label for="assign_inv_email" class="form-label">Assigner Email</label>
+        <input type="email" class="form-control" name="assign_inv_email" id="assign_inv_email">
+       
+      </div>
+
+
+    
+
+
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

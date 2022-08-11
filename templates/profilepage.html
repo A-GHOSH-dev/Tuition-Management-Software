@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+<main class="mt-4 pt-5 p-4">
+
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for us in adduserorder %}
+
+
+        <div class="col-4 py-3">
+          <div class="card h-80" style="width: 18rem;">
+            <img src="https://cdn3.iconfinder.com/data/icons/gray-user-toolbar/512/account_card-512.png" class="card-img-top" alt="..." style="
+              width: 100%; padding-top: 3px;
+              height: 11vw;
+              object-fit: cover;
+          ">
+            <div class="card-body">
+              <h3 class="card-title">{{us.addemp_id}} - {{us.addname}}</h3>
+         
+              <h5 class="card-title">{{us.designation}}</h5>
+              <p class="card-text">{{us.adddepartment}} - {{us.addsection}}</p>
+              <p class="card-text">Training Recieved - {{us.addtraining}}</p>
+              <p class="card-text">{{us.addemail}}</p>
+              <p class="card-text">{{us.addphone}}</p>
+            </div>
+            <div class="card-footer">
+              <h6 class="text-muted">{{us.addrole}}</h6>
+            </div>
+          </div>
+        </div>
+ 
+{% endfor %}
+
+      </div>
+
+
+      
+      </main>
+      {% endblock %}

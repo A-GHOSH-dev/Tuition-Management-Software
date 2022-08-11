@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main class="mt-5 pt-5 p-5">
+    <div class="container-fluid">
+      {% for msg in messages %}
+      {{msg}}
+      {% endfor %}
+      <img src="{% static 'images/login.gif' %}" class="img-fluid" alt="...">
+      <form action="/login" method="POST">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="loginemp_id" class="form-label">Employee ID</label>
+    <input type="text" class="form-control" name="loginemp_id" id="loginemp_id" aria-describedby="emp_idHelp">
+    
+  </div>
+
+    <div class="mb-3">
+      <label for="loginpassword" class="form-label">Password</label>
+      <input type="password" class="form-control" name="loginpassword" id="loginpassword" aria-describedby="passwordHelpBlock">
+      
+    </div>
+
+   
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+  </main>
+{% endblock body %}

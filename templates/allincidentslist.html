@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<main>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h4 class="text-center">All Incidents Reported</h4>
+          <h4 class="text-center"><em>Number of incidents reported: {{incidentreportingorder|length}}</em></h4> 
+					<div class="table-wrap">
+						<table class="table">
+					    <thead class="thead-primary">
+					      <tr>
+					        <th class="w-10">Incident ID</th>
+					        <th class="w-10">Date</th>
+					        <th class="w-10">Time</th>
+					        <th class="w-20">Department</th>
+					        <th class="w-50">Description and Type of the Incident</th>
+					        <th class="w-50">Immediate actions taken & Current Status</th>
+                            <th class="w-20">Name of Victim</th>
+                            <th class="w-20">Role of Victim</th>
+                            <th class="w-20">Victim ID</th>
+                         
+                            <th class="w-20">Investigator</th>
+                 
+					      </tr>
+					    </thead>
+					    <tbody>
+							{% for aincident in assigninvestigatororder %}
+							{% for incident in incidentreportingorder %}
+							
+                
+               
+                
+					      <tr>
+					        <th scope="row" class="scope" class="w-10">{{incident.reportingincident_id}}</th>
+					        <td class="w-10">{{incident.dateincident}}</td>
+                  <td class="w-10">{{incident.timeincident}}</td>
+					        <td class="w-10">{{incident.locationincident}}</td>
+					        <td class="w-50">{{incident.incidentdesc}}</td>
+					        <td class="w-50">{{incident.incidentaction}}</td>
+                            <td class="w-10">{{incident.victimname}} </td>
+                                <td class="w-10">{{incident.victimrole}} </td> 
+                                <td class="w-10">{{incident.victimemp_id}}{{incident.victimcon_id}}</td>
+                            
+                                     
+                                      <td class="w-10">{{aincident.nameassignedinvestigator}}</td>
+
+									  
+					      
+					      </tr>
+				{% endfor %}
+                {% endfor %}
+            
+					      
+					      
+					      
+					      
+					    </tbody>
+					  </table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</main>
+{% endblock body %}
