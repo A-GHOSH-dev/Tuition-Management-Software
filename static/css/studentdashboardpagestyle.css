@@ -11,6 +11,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 body {
   background: #ffede1;
@@ -245,17 +246,11 @@ text-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
+flex-direction: row;
   padding: 40px;
   margin-left: 60px;
 }
-.section2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin-left: 60px;
-}
+
 
 .section > .scard {
   width: 220px;
@@ -269,33 +264,12 @@ text-center {
   border-radius: 20px;
   margin: 20px;
 }
-.section2 > .scard {
-  width: 220px;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: #fffaf7;
-  box-shadow: 0px 7px 58px -8px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  margin: 20px;
-}
+
 .section > .scard:hover {
   box-shadow: 0px 7px 58px -8px rgba(0, 0, 0, 0.5);
 }
-.section2 > .scard:hover {
-  box-shadow: 0px 7px 58px -8px rgba(0, 0, 0, 0.5);
-}
 
-.main {
-  display: flex;
-  flex-direction: row;
-}
-.sec-col {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .arrow {
   position: absolute;
