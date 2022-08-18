@@ -20,9 +20,9 @@
         <ul>
           <li><a href="/index">Home</a></li>
           {% for storders in finalprofilestudorder %}
-          <li><a href="studentdashboardpage/{{storders.inputemailt}}">DashBoard</a></li>
-          <li><a href="studentprofile/{{storders.inputemailstu}}">Profile </a></li>
-          {% endfor %}
+          <li><a href="">DashBoard</a></li>
+          <li><a href="studentprofile/{{storders.idstudent}}">Profile </a></li>
+          
           <li><a href="/logout">LogOut</a></li>
           <img class="avatar" src="https://static.vecteezy.com/system/resources/previews/000/350/738/original/vector-male-student-icon.jpg" alt="" />
         </ul>
@@ -36,36 +36,38 @@
                 src="https://static.vecteezy.com/system/resources/previews/000/350/738/original/vector-male-student-icon.jpg"
                 alt=""
               />
-
               <div class="line"></div>
             </div>
+            <form action="">
             <div class="down">
               <div class="cred">
                 <br><br>
-                <h3>{{finalprofilestudorder.inputfirstnamestu}} {{finalprofilestudorder.inputlastnamestu}}</h3>
-                <h4><center> {{finalprofilestudorder.inputemailstu}}</h4>
-                  <h4><center> {{finalprofilestudorder.inputphonestu}}</h4>
-                    <h4><center> {{finalprofilestudorder.inputtypestu}}</h4>
+             <center>  <input type="text" value="{{storders.inputfirstnamestu}} {{storders.inputlastnamestu}}" />
+             <input type="email" value="{{storders.inputemailstu}}" />
+             <input type="number" value="{{storders.idstudent}}" />
 
+             <input type="number" value="{{storders.inputphonestu}}" />
+             <input type="text" value="{{storders.inputtypestu}}" />
+            </center>
               </div>
-              <div class="space"></div>
-              <button class="editButton">Edit Profile</button>
-              <div class="space-2"></div>
+              
             </div>
           </div>
           <div class="right">
             <div class="inputs">
-              <form action="">
-                <input type="text" class="fifty" value="Address: {{finalprofilestudorder.inputaddressstu}}"  />
-                <input type="text" class="fifty" value="Class/Year: {{finalprofilestudorder.inputclassstu}}"  />
-                <input type="text" class="hundred" value="Branch/Stream: {{finalprofilestudorder.inputbranchstu}}"  />
-                <input type="text" class="seventy" value="Experience: {{finalprofilestudorder.inputexperiencestu}}"  />
-                <input type="text" class="thirty" value="Age: {{finalprofilestudorder.inputagestu}}" />
-                <input type="text" class="forty" value="Gender: {{finalprofilestudorder.inputgenstu}}" />
-                <input type="text" class="fifty" value="Timings: {{finalprofilestudorder.inputtimestu}}" />
-                <input type="text" class="sixty" value="Mode: {{finalprofilestudorder.inputmodestu}}" />
+              <br><br>  
+                <input type="text" class="fifty" value="{{storders.inputaddressstu}}"  />
+                <input type="text" class="fifty" value="{{storders.inputclassstu}}"  />
+                <input type="text" class="hundred" value="{{storders.inputbranchstu}}"  />
+                <input type="text" class="seventy" value="{{storders.inputexperiencestu}}"  />
+                <input type="number" class="thirty" value="{{storders.inputagestu}}" />
+                <input type="text" class="forty" value="{{storders.inputgenstu}}" />
+                <input type="text" class="fifty" value="{{storders.inputtimestu}}" />
+                <input type="text" class="sixty" value="{{storders.inputmodestu}}" />
+                {% endfor %}
                 <br><br>
-                <center><button class="form-button">Save</button></center>
+           
+               <!-- <center><button class="form-button" type="submit">Save</button></center>-->
               </form>
             </div>
           </div>

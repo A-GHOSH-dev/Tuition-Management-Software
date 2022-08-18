@@ -7,54 +7,26 @@ admin.site.site_title= "Welcome to my dashboard"
 admin.site.index_title="Welcome to my portal"
 
 urlpatterns = [
+    ##########################################################
+    ##########################################################
+    ##########################################################
+    ##########################################################
+    
     
     path('', views.index, name='index'),
-    path('dashboard', views.dashboard, name='dashboard'),
-    path('low', views.low, name='low'),
-    path('high', views.high, name='high'),
-    path('moderate', views.moderate, name='moderate'),
-    path('extreme', views.extreme, name='extreme'),
-    #path('home', views.home, name='home'),
-   # path('signup', views.signup, name='signup'),
+    path('studentdashboardpage/<str:ik>', views.studentdashboardpage, name='studentdashboardpage'),
+    path('studentprofile/<str:ik>', views.studentprofile, name='studentprofile'),
     path('signup', views.handleSignup, name='handleSignup'),
     path('login', views.handleLogin, name='handleLogin'),
-    path('logout', views.handleLogout, name='handleLogout'),
-    path('adduser', views.adduser, name='adduser'),
-    path('incidentreport', views.incidentreport, name='incidentreport'),
-    path('assignleadinvestigator', views.assignleadinvestigator, name='assignleadinvestigator'),
-    path('allincidentslist', views.allincidentslist, name='allincidentslist'),
-    path('whywhyanalysis', views.whywhyanalysis, name='whywhyanalysis'),
-    path('specialanalysis', views.specialanalysis, name='specialanalysis'),
-    path('finalinvestigationreport', views.finalinvestigationreport, name='finalinvestigationreport'),
-    path('actionclosure', views.actionclosure, name='actionclosure'),
-    path('verifyactionclose', views.verifyactionclose, name='verifyactionclose'),
-    path('incidentenquiry', views.incidentenquiry, name='incidentenquiry'),
-    path('profilepage', views.profilepage, name='profilepage'),
-    path('actionandreport', views.actionandreport, name='actionandreport'),
-    path('finalreportpdf/<str:pk>', views.finalreportpdf, name='finalreportpdf'),
-    #path('payment', views.payment, name='payment')
-    
-    ##########################################################
-    ##########################################################
-    ##########################################################
-    ##########################################################
-    
-    
-    path('', views.index, name='index'),
-    path('studentdashboardpage/<str:kk>', views.studentdashboardpage, name='studentdashboardpage'),
-    path('studentprofile/<str:ik>', views.studentprofile, name='studentprofile'),
-    path('tutlogin', views.handleLoginT, name='handleLoginT'),
-    path('studlogin', views.handleLoginS, name='handleLoginS'),
-    path('logout', views.handleLogout, name='handleLogout'),
-    path('tutordashboard/<str:qk>', views.tutordashboard, name='tutordashboard'),
+    path('tutordashboard/<str:pk>', views.tutordashboard, name='tutordashboard'),
     path('tutorprofile/<str:pk>', views.tutorprofile, name='tutorprofile'),
-    path('tutsignup', views.handleSignupT, name='handleSignupT'),
-    path('studsignup', views.handleSignupS, name='handleSignupS'),
     path('registernewcourse', views.registernewcourse, name='registernewcourse'),
     path('editprofilestudent', views.editprofilestudent, name='editprofilestudent'),
     path('editprofiletutor', views.editprofiletutor, name='editprofiletutor'),
     path('tutcreateprofile', views.tutcreateprofile, name='tutcreateprofile'),
     path('studcreateprofile', views.studcreateprofile, name='studcreateprofile'),
+    path('studentlist', views.studentlist, name='studentlist'),
+    path('tutorlist', views.tutorlist, name='tutorlist'),
     
 
 ]

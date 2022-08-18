@@ -19,12 +19,12 @@
         <h1>TUTFINDER</h1>
         <ul>
           <li><a href="/index">Home</a></li>
-          {% for forders in finalprofiletutorder %}
-          <li><a href="tutordashboard/{{forders.inputemailt}}">DashBoard</a></li>
-          <li><a href="tutorprofile/{{forders.inputemailt}}">Profile </a></li>
-          {% endfor %}
+          {% for storders in finalprofiletutorder %}
+          <li><a href="">DashBoard</a></li>
+          <li><a href="tutorprofile/{{storders.idtutor}}">Profile </a></li>
+          
           <li><a href="/logout">LogOut</a></li>
-          <img class="avatar" src="{{finalprofiletutorder.inputpict}}" alt="" />
+          <img class="avatar" src="{{storders.inputpict}}" alt="" />
         </ul>
       </nav>
       <div class="parent">
@@ -33,39 +33,41 @@
             <div class="up">
               <img
                 class="avatar-l"
-                src="{{finalprofiletutorder.inputpict}}"
+                src="{{storders.inputpict}}"
                 alt=""
               />
-
               <div class="line"></div>
             </div>
+            <form action="">
             <div class="down">
               <div class="cred">
                 <br><br>
-                <h3>{{finalprofiletutorder.inputfirstnamet}} {{finalprofiletutorder.inputlastnamet}}</h3>
-                <h4><center> {{finalprofiletutorder.inputemailt}}</h4>
-                  <h4><center> {{finalprofiletutorder.inputphonet}}</h4>
-                    <h4><center> {{finalprofiletutorder.inputtypet}}</h4>
+             <center>  <input type="text" value="{{storders.inputfirstnamet}} {{storders.inputlastnamet}}" />
+             <input type="email" value="{{storders.inputemailt}}" />
+             <input type="number" value="{{storders.idtutor}}" />
 
+             <input type="number" value="{{storders.inputphonet}}" />
+             <input type="text" value="{{storders.inputtypet}}" />
+            </center>
               </div>
-              <div class="space"></div>
-              <button class="editButton">Edit Profile</button>
-              <div class="space-2"></div>
+              
             </div>
           </div>
           <div class="right">
             <div class="inputs">
-              <form action="">
-                <input type="text" class="fifty" value="Address: {{finalprofiletutorder.inputaddresst}}"  />
-                <input type="text" class="fifty" value="Courses I Teach: {{finalprofiletutorder.inputcoursest}}"  />
-                <input type="text" class="hundred" value="My Experience: {{finalprofiletutorder.inputexperiencet}}"  />
-                <input type="text" class="seventy" value="Age: {{finalprofiletutorder.inputaget}}"  />
-                <input type="text" class="thirty" value="Organization: {{finalprofiletutorder.inputorgt}}" />
-                <input type="text" class="forty" value="Timings: {{finalprofiletutorder.inputtimet}}" />
-                <input type="text" class="fifty" value="Seats: {{finalprofiletutorder.inputseatt}}" />
-                <input type="text" class="sixty" value="Mode: {{finalprofiletutorder.inputmodet}}" />
+              <br><br>  
+                <input type="text" class="fifty" value="{{storders.inputaddresst}}"  />
+                <input type="text" class="fifty" value="{{storders.inputcoursest}}"  />
+                <input type="text" class="hundred" value="{{storders.inputorgt}}"  />
+                <input type="text" class="seventy" value="{{storders.inputexperiencet}}"  />
+                <input type="number" class="thirty" value="{{storders.inputaget}}" />
+                <input type="text" class="forty" value="{{storders.inputseatt}}" />
+                <input type="text" class="fifty" value="{{storders.inputtimet}}" />
+                <input type="text" class="sixty" value="{{storders.inputmodet}}" />
+                {% endfor %}
                 <br><br>
-                <center><button class="form-button">Save</button></center>
+           
+               <!-- <center><button class="form-button" type="submit">Save</button></center>-->
               </form>
             </div>
           </div>

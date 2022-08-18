@@ -11,7 +11,8 @@ from django.db import models
 class Finalstudentprofile(models.Model):
     inputfirstnamestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputlastnamestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    inputemailstu = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    idstudent = models.IntegerField(primary_key=True)
+    inputemailstu = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputphonestu = models.DecimalField(max_digits=15, decimal_places=0)
     inputtypestu = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputaddressstu = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
@@ -30,8 +31,10 @@ class Finalstudentprofile(models.Model):
 
 class Finalstudentregister(models.Model):
     registernewcontact = models.DecimalField(max_digits=15, decimal_places=0)
-    registernewemail = models.ForeignKey(Finalstudentprofile, models.DO_NOTHING, db_column='registernewemail')
+    registernewemail = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
     studentnotetotutor = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    tutorprofilelink = models.CharField(max_length=500, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    coursesregistered = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
 
     class Meta:
         managed = False
@@ -41,7 +44,8 @@ class Finalstudentregister(models.Model):
 class Finaltutorprofile(models.Model):
     inputfirstnamet = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputlastnamet = models.CharField(max_length=50, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    inputemailt = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    idtutor = models.IntegerField(primary_key=True)
+    inputemailt = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputphonet = models.DecimalField(max_digits=15, decimal_places=0)
     inputtypet = models.CharField(max_length=25, db_collation='SQL_Latin1_General_CP1_CI_AS')
     inputaddresst = models.CharField(max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')

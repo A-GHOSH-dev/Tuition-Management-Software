@@ -17,6 +17,7 @@
 </head>
 
 <body style="background-color: #FFEDE1;">
+    <h4 class="text-center"><em>Total: {{finalprofilestudorder|length}}</em></h4> 
     <div class="signup-form-container">
         <form class="sign-up-form"action="/studcreateprofile" method="POST">
             {% csrf_token %}
@@ -42,7 +43,7 @@
 
                     <div class="col-6@md">
 
-                        <input placeholder="Last name" style="background:#FFEDE1;border: 2px solid #341D30"
+                       <input placeholder="Last name" style="background:#FFEDE1;border: 2px solid #341D30"
                             class="form-control width-100%" type="text" name="inputlastnamestu" id="inputlastnamestu">
                     </div>
                 </div>
@@ -53,6 +54,11 @@
                 <input placeholder="email" style="background:#FFEDE1;border: 2px solid #341D30"
                     class="form-control width-100%" type="email" name="inputemailstu" id="inputemailstu">
             </div>
+            <div class="margin-bottom-sm">
+
+                <input placeholder="id number" style="background:#FFEDE1;border: 2px solid #341D30"
+                    class="form-control width-100%" type="number" name="idstudent" id="idstudent">
+            </div>
 
            
             <div class="margin-bottom-sm">
@@ -61,6 +67,30 @@
 
                         <input placeholder="phone no" style="background:#FFEDE1;border: 2px solid #341D30"
                             class="form-control width-100%" type="number" name="inputphonestu" id="inputphonestu">
+                
+
+               
+                </div>
+            </div>
+
+            
+            <div class="margin-bottom-sm">
+                <div class="grid gap-xs">
+                  
+
+                        <input placeholder="student experience" style="background:#FFEDE1;border: 2px solid #341D30"
+                            class="form-control width-100%" type="text" name="inputexperiencestu" id="inputexperiencestu">
+                
+
+               
+                </div>
+            </div>
+            <div class="margin-bottom-sm">
+                <div class="grid gap-xs">
+                  
+
+                        <input placeholder="Type" style="background:#FFEDE1;border: 2px solid #341D30"
+                            class="form-control width-100%" type="text" name="inputtypestu" id="inputtypestu">
                 
 
                
@@ -152,6 +182,8 @@
             <div class="button-color margin-bottom-sm">
                 <button style="background-color: #341D30;" class="btn btn--primary btn--md width-100%">Create Profile</button>
             </div>
+           
+          
 
 
         </form>

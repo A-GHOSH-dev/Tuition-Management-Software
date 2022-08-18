@@ -14,6 +14,7 @@ from pathlib import Path
 import pyodbc
 
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bb2-tpmo!zj+^4g=*qp)x05$^7as8923v6=a(2!fl(2v)%ht0d'
+SECRET_KEY = 'django-insecure-h9@pna!(cu(hiklh+&+xz3%_chy%_^%c)7$0n9x5qd-9f@+dg('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#AUTH_USER_MODEL = 'accounts.User'
 
 # Application definition
 
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tuitionapplication',
+
 ]
 
 MIDDLEWARE = [
@@ -72,11 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tuitionsoftware.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    #create one for accounts
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'TutionManagementSoftware',
@@ -96,8 +98,15 @@ DATABASES = {
                 {"encoding": "utf-8"}],
             
         },
-    },
+        },
+    #create one for accounts
+
+    
+    
 }
+
+#SESSION_ENGINE = 'sqlite3.django.sessions' # optional
+
 
 DATABASE_CONNECTION_POOLING = True
 
@@ -156,3 +165,10 @@ EMAIL_HOST_PASSWORD = 'Ananya1234!'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#DATABASE_ROUTERS = ['routers.db_routers.AuthRouter', 'routers.db_routers.Tuition']
+
+#import dj_database_url
+#DATABASES['tuition_db'] =  dj_database_url.config()
+#DATABASES['users_db'] =  dj_database_url.config()

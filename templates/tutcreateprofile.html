@@ -17,6 +17,7 @@
 </head>
 
 <body style="background-color: #FFEDE1;">
+    <h4 class="text-center"><em>Total: {{finalprofiletutorder|length}}</em></h4> 
     <div class="signup-form-container">
         <form class="sign-up-form" action="/tutcreateprofile" method="POST">
             {% csrf_token %}
@@ -45,6 +46,7 @@
                         <input placeholder="Last name" style="background:#FFEDE1;border: 2px solid #341D30"
                             class="form-control width-100%" type="text" name="inputlastnamet" id="inputlastnamet">
                     </div>
+                    
                 </div>
             </div>
 
@@ -53,6 +55,13 @@
                 <input placeholder="email" style="background:#FFEDE1;border: 2px solid #341D30"
                     class="form-control width-100%" type="email" name="inputemailt" id="inputemailt">
             </div>
+
+            <div class="margin-bottom-sm">
+
+                <input placeholder="Tutor id" style="background:#FFEDE1;border: 2px solid #341D30"
+                    class="form-control width-100%" type="number" name="idtutor" id="idtutor">
+            </div>
+
 
            
             <div class="margin-bottom-sm">
