@@ -30,10 +30,12 @@ class Finalstudentprofile(models.Model):
 
 
 class Finalstudentregister(models.Model):
+    registernewid = models.DecimalField(max_digits=20, decimal_places=0)
     registernewcontact = models.DecimalField(max_digits=15, decimal_places=0)
     registernewemail = models.CharField(primary_key=True, max_length=100, db_collation='SQL_Latin1_General_CP1_CI_AS')
     studentnotetotutor = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
-    tutorprofilelink = models.CharField(max_length=500, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    tutoridnew = models.CharField(max_length=500, db_collation='SQL_Latin1_General_CP1_CI_AS')
+    tutornewemail = models.CharField(max_length=300, db_collation='SQL_Latin1_General_CP1_CI_AS')
     coursesregistered = models.CharField(max_length=200, db_collation='SQL_Latin1_General_CP1_CI_AS')
 
     class Meta:

@@ -15,13 +15,14 @@
       {{msg}}
       {% endfor %}</p>
     <main>
+
       <nav>
         <h1>TUTFINDER</h1>
         <ul>
           <li><a href="/index">Home</a></li>
           {% for storders in finalprofilestudorder %}
-          <li><a href="">DashBoard</a></li>
-          <li><a href="studentprofile/{{storders.idstudent}}">Profile </a></li>
+          <li><a href="/studentdashboardpage/{{storders.idstudent}}">DashBoard</a></li>
+          <li><a href="/studentprofile/{{storders.idstudent}}">Profile </a></li>
           
           <li><a href="/logout">LogOut</a></li>
           <img class="avatar" src="https://static.vecteezy.com/system/resources/previews/000/350/738/original/vector-male-student-icon.jpg" alt="" />

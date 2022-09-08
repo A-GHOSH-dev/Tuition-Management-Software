@@ -27,6 +27,9 @@ urlpatterns = [
     path('studcreateprofile', views.studcreateprofile, name='studcreateprofile'),
     path('studentlist', views.studentlist, name='studentlist'),
     path('tutorlist', views.tutorlist, name='tutorlist'),
+    path('searchpage', views.searchpage, name='searchpage'),
+    path('tutorprofileview/<str:pk>', views.tutorprofileview, name='tutorprofileview'),
+    path('studentprofileview/<str:ik>', views.studentprofileview, name='studentprofileview'),
     
 
 ]

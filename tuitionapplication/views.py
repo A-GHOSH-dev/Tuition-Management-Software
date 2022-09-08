@@ -23,11 +23,13 @@ def index(request):
 
 
 def handleSignup(request): 
+    
     if request.method=='GET':
         return render(request, 'signup.html')
     if request.method=='POST':
         #Get parameters posted
         username=request.POST['username']
+        userid=request.POST['userid']
         emailsignup=request.POST['emailsignup']
         firstnamesignup=request.POST['firstnamesignup']
         lastnamesignup=request.POST['lastnamesignup']  
@@ -36,21 +38,25 @@ def handleSignup(request):
         
 
         myuser = User.objects.create_user(username, emailsignup, passsignup)
-        myuser.person_name=firstnamesignup
+        myuser.user_id=userid
         #myuser.Last_name=Slastname
         myuser.save()
         messages.success(request, "Your account has been successfully created")
+        #finalprofiletutorder = Finaltutorprofile.objects.filter(userid=lk)
+        #print(finalprofiletutorder)
+        
 
-        '''tosign = request.POST.get('emailsignup')
+        tosign = request.POST.get('emailsignup')
         print(tosign)
         send_mail(
             'You have signed in successfully.',
             'Go Back to the website to Login.',
             settings.EMAIL_HOST_USER,
             [tosign]
-        )'''
+        )
         
         return redirect('/')
+        #return render(request, '/', {"finalprofiletutorder":finalprofiletutorder})
 
 def handleLogin(request):
     if request.method=='GET':
@@ -78,6 +84,10 @@ def handleLogout(request):
 
 def tutcreateprofile(request):
     finalprofiletutorder = Finaltutorprofile.objects.all()
+    #finalprofiletutorder = Finaltutorprofile.objects.get(pk=1)
+    
+   
+   
     if request.method=="POST":
         idtutor=request.POST['idtutor']
         inputfirstnamet=request.POST['inputfirstnamet']
@@ -99,8 +109,21 @@ def tutcreateprofile(request):
 
         finaltutprofiledata.save()
         messages.success(request, "Tutor Profile succesfully created and saved")
-              
+        finalprofiletutorder = Finaltutorprofile.objects.filter(pk=idtutor)
+        print(finalprofiletutorder)
+        return redirect('tutorprofileview', pk=finaltutprofiledata.idtutor)
     return render(request,"tutcreateprofile.html",{"Ftutprofileorders":finalprofiletutorder})
+        
+    #return redirect('tutorprofileview', pk=finalprofiletutorder.idtutor, {"Ftutprofileorders":finalprofiletutorder})
+    #return redirect('tutorprofileview', pk=finalprofiletutorder.idtutor)
+
+def tutorprofileview(request, pk):
+    finalprofiletutorder = Finaltutorprofile.objects.filter(idtutor=pk)
+    print(finalprofiletutorder)
+    
+    return render(request, 'tutorprofileview.html', {"finalprofiletutorder":finalprofiletutorder})
+    #return redirect('tutorprofile', pk=finalprofiletutorder.idtutor)
+
 
 def tutorlist(request):
     #num1=Finalstudentprofile.objects.count()
@@ -122,6 +145,7 @@ def tutordashboard(request, pk):
     #return HttpResponse("This is my home page")
     #return render(request, 'tutordashboard.html')
     finalprofiletutorder = Finaltutorprofile.objects.filter(idtutor=pk)
+    finalregisterstudorder = Finalstudentregister.objects.all()
     print(finalprofiletutorder)
     return render(request, 'tutordashboard.html', {"finalprofiletutorder":finalprofiletutorder})
 
@@ -147,9 +171,20 @@ def studcreateprofile(request):
 
         finalstudprofiledata.save()
         messages.success(request, "Student Profile succesfully created and saved")
+        finalprofilestudorder = Finalstudentprofile.objects.filter(ik=idstudent)
+        print(finalprofilestudorder)
+        return redirect('studentprofileview', ik=finalstudprofiledata.idstudent)
               
     #return render(request,"studcreateprofile.html",{"Fstudprofileorders":finalprofilestudorder})
     return render(request,"studcreateprofile.html",{"Fstudprofileorders":finalprofilestudorder})
+
+def studentprofileview(request, ik):
+    finalprofilestudorder = Finalstudentprofile.objects.filter(idstudent=ik)
+    print(finalprofilestudorder)
+    
+    return render(request, 'studentprofileview.html', {"finalprofilestudorder":finalprofilestudorder})
+    #return redirect('tutorprofile', pk=finalprofiletutorder.idtutor)
+
 
 def studentlist(request):
     #num1=Finalstudentprofile.objects.count()
@@ -173,29 +208,52 @@ def studentprofile(request, ik):
 def studentdashboardpage(request, ik): #take from registeration
     #return HttpResponse("This is my home page")
     #return render(request, 'studentdashboardpage.html')
-    finalprofiletutorder = Finaltutorprofile.objects.all()
-    finalprofilestudorder = Finalstudentprofile.objects.filter(idstudent=ik)
-    print(finalprofilestudorder, finalprofiletutorder)
-    return render(request, 'studentdashboardpage.html', {"finalprofilestudorder":finalprofilestudorder, "finalprofiletutorder":finalprofiletutorder})
+    #finalprofiletutorder = Finaltutorprofile.objects.all()
+    #finalprofilestudorder = Finalstudentprofile.objects.filter(idstudent=ik)
+    finalregisterstudorder = Finalstudentregister.objects.all()
+    print(finalregisterstudorder)
+    return render(request, 'studentdashboardpage.html', {"finalregisterstudorder":finalregisterstudorder})
 
 def registernewcourse(request):
     #return HttpResponse("This is my home page")
     #return render(request, 'registernewcourse.html')
     finalregisterstudorder = Finalstudentregister.objects.all()
     if request.method=="POST":
-        
+        registernewid=request.POST['registernewid']
         registernewcontact=request.POST['registernewcontact']
         registernewemail=request.POST['registernewemail']
         studentnotetotutor=request.POST['studentnotetotutor']
-        tutorprofilelink=request.POST['tutorprofilelink']
+        tutoridnew=request.POST['tutoridnew']
+        tutornewemail=request.POST['tutornewemail']
         coursesregistered=request.POST['coursesregistered']
         
-        finalstudregisterdata = Finalstudentregister(registernewcontact=registernewcontact, registernewemail=registernewemail, studentnotetotutor=studentnotetotutor, tutorprofilelink=tutorprofilelink, coursesregistered=coursesregistered)  
+        finalstudregisterdata = Finalstudentregister(registernewid=registernewid, registernewcontact=registernewcontact, registernewemail=registernewemail, studentnotetotutor=studentnotetotutor, tutoridnew=tutoridnew, tutornewemail=tutornewemail, coursesregistered=coursesregistered)  
 
         finalstudregisterdata.save()
-        messages.success(request, "Course Registered Successfully")
-              
+        messages.success(request, "Course Registered Successfully") 
+        
+        tosign = request.POST.get('tutornewemail')
+        conver = request.POST.get('registernewid')
+        conver1 = request.POST.get('registernewcontact')
+        conver2 = request.POST.get('registernewemail')
+        conver3 = request.POST.get('studentnotetotutor')
+        conver4 = request.POST.get('coursesregistered')
+        print(tosign)
+        send_mail(
+            'A New Registration Recieved.',
+            'Student ID '+ conver +' has Registered. Courses: ' + conver4+ ' Phone Number: '+ conver1 + ' Email ID: ' + conver2 + ' Note: ' + conver3,
+            settings.EMAIL_HOST_USER,
+            [tosign]
+        )
+        
+        
+                     
     return render(request,"registernewcourse.html",{"Fstudregisterorders":finalregisterstudorder})
+
+def searchpage(request):
+    finalprofiletutorder = Finaltutorprofile.objects.all()
+    print(finalprofiletutorder)
+    return render(request, 'searchpage.html', {"finalprofiletutorder":finalprofiletutorder})
 
 
 

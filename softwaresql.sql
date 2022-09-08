@@ -38,10 +38,12 @@ inputmodestu varchar(100) not null, --linkedinlink
 );
 
 create table Finalstudentregister(
+registernewid numeric(20) not null,
 registernewcontact numeric(15) not null, --StudentName
 registernewemail varchar(100) not null primary key, --StudentEmail address
 studentnotetotutor varchar(200) not null, --address
-tutorprofilelink varchar(500) not null,
+tutoridnew varchar(500) not null,
+tutornewemail varchar(300) not null,
 coursesregistered varchar(200) not null,
 
 );

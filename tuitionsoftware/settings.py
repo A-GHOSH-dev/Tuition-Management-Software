@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'mssql',
         'NAME': 'TutionManagementSoftware',
         'USER': 'dbmsprojectlogin',
-        'PASSWORD': 'ananya',
+        'PASSWORD': 'dbms',
         'HOST': 'DESKTOP-SFLDVJT',
         'PORT': '',
 
@@ -158,7 +158,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ananya.ghosh2020@vitstudent.ac.in'
-EMAIL_HOST_PASSWORD = 'Ananya1234!'
+EMAIL_HOST_PASSWORD = 'Ananya12345!'
 
 
 # Default primary key field type

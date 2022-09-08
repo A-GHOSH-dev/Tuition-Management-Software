@@ -18,10 +18,10 @@
       <nav>
         <h1>TUTFINDER</h1>
         <ul>
-          <li><a href="/index">Home</a></li>
+          <li><a href="/">Home</a></li>
           {% for storders in finalprofiletutorder %}
-          <li><a href="">DashBoard</a></li>
-          <li><a href="tutorprofile/{{storders.idtutor}}">Profile </a></li>
+          <li><a href="/tutordashboard/{{storders.idtutor}}">DashBoard</a></li>
+          <li><a href="/tutorprofile/{{storders.idtutor}}">Profile </a></li>
           
           <li><a href="/logout">LogOut</a></li>
           <img class="avatar" src="{{storders.inputpict}}" alt="" />

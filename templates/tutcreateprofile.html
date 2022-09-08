@@ -17,7 +17,7 @@
 </head>
 
 <body style="background-color: #FFEDE1;">
-    <h4 class="text-center"><em>Total: {{finalprofiletutorder|length}}</em></h4> 
+   
     <div class="signup-form-container">
         <form class="sign-up-form" action="/tutcreateprofile" method="POST">
             {% csrf_token %}
@@ -28,8 +28,6 @@
                 <h1>Tutor Create Profile</h1>
                 <p></p>
             </div>
-
-
 
 
 
@@ -58,7 +56,7 @@
 
             <div class="margin-bottom-sm">
 
-                <input placeholder="Tutor id" style="background:#FFEDE1;border: 2px solid #341D30"
+                <input placeholder="Tutor id - Put here your userid which you used while signing up" style="background:#FFEDE1;border: 2px solid #341D30"
                     class="form-control width-100%" type="number" name="idtutor" id="idtutor">
             </div>
 
@@ -189,19 +187,26 @@
 
 
             <div class="button-color margin-bottom-sm">
-                <button style="background-color: #341D30;" class="btn btn--primary btn--md width-100%">Sign Up</button>
+                <button style="background-color: #341D30;" class="btn btn--primary btn--md width-100%">Create Profile</button><br>    
+              
             </div>
 
 
         </form>
     </div>
+   
+    <div>
+        
+       
+        <a class="btn btn-link" href="tutorprofileview/{{finalprofiletutorder.idtutor}}">Profile</a>
 
+    </div> 
+    
+      
     <script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
     </script>
-
-
 
 
 </body>
