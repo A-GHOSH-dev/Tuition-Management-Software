@@ -1,0 +1,31 @@
+body {
+    margin: 0%;
+    background-image: url('/static/images/homepagebackground.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+  
+  .background {
+    background-image: url('/static/images/homepagebackground.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+  }
+  
+  .footer {
+    margin-top: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #341D30;
+  }
+  
+  .contact-us {
+    color: #FFEDE1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .input-textbox {
+    background-color: #FFEDE1;
+  }

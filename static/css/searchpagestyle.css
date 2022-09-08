@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://rsms.me/inter/inter.css");
+
+html {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+body {
+  background-color: #FFEDE1;
+}
+
+nav {
+  background-color: #341d30;
+  position: relative;
+  z-index: 1;
+  padding: 0 50px;
+  height: 79px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #341d30;
+  box-shadow: 0px 7px 20px #341d30;
+  margin-bottom: 5rem;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: #FFEDE1;
+  font-size: 1.3em;
+}
+
+li>a:hover {
+  color: #f5f5f5;
+}
+
+.nav-col {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+.avatar-l {
+  width: 200px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.phone-no {
+  margin-left: 20px;
+}
+
+.filters {
+  margin: 10px
+}
+
+.teacher-name {
+  color: #FFEDE1;
+}
+
+.timing {
+  margin-left: 10px;
+  top: 50%;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 320px;
+  background: #341D30;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.container .card:before {
+  content: '';
+  position: absolute;
+  /* left: -5px; */
+  width: 100%;
+  height: 100%;
+  background: #FFEDE1;
+  clip-path: circle(100px at 100% 0%);
+  transition: 0.5s ease-in-out;
+}
+
+.container .card:hover:before {
+  clip-path: circle(500px at 80% -20%);
+}
+
+.container .card:after {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255, 255, 25, 0.05)
+}
+
+.container .card .imgBx {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.container .card:hover .imgBx {
+  top: 0%;
+  transform: translateY(0%);
+}
+
+.container .card .imgBx img {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+}
+
+.container .card .contentBx {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+.container .card:hover .contentBx {
+  height: 270px;
+}
+
+.container .card .contentBx h2 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #fff;
+  margin: 0;
+}
+
+.container .card .contentBx .size,
+.container .card .contentBx .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.container .card:hover .contentBx .size {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+
+.container .card:hover .contentBx .color {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
+
+.container .card .contentBx .size h3,
+.container .card .contentBx .color h3 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.container .card .contentBx .size span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+  color: #111;
+  background: #fff;
+  margin: 0 5px;
+  transition: 0.5s;
+  color: #111;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container .card .contentBx .size span:hover {
+  background: #9bdc28;
+}
+
+.container .card .contentBx .color span {
+  width: 20px;
+  height: 20px;
+  background: #ff0;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.container .card .contentBx .color span:nth-child(2) {
+  background: #9bdc28;
+}
+
+.container .card .contentBx .color span:nth-child(3) {
+  background: #03a9f4;
+}
+
+.container .card .contentBx .color span:nth-child(4) {
+  background: #e91e63;
+}
+
+.container .card .contentBx a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  margin-top: 0;
+}
+
+.container .card:hover .contentBx a {
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.75s;
+}
+
+/* --------------------------------
+File#: _2_multiple-custom-select-v2
+Title: Multiple Custom Select v2
+Descr: A list of filterable checkbox inputs
+Usage: codyhouse.co/license
+-------------------------------- */
+.multi-select-v2__label {
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.multi-select-v2__label:hover {
+  transition: background-color 0.2s;
+  background-color: hsla(var(--color-contrast-higher-h), var(--color-contrast-higher-s), var(--color-contrast-higher-l), 0.075);
+}
+
+.multi-select-v2__label.multi-select-v2__label--checked {
+  background-color: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.15);
+}
+
+.multi-select-v2__label.multi-select-v2__label--checked:hover {
+  background-color: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
+}
+
+.multi-select-v2__checkbox {
+  --custom-checkbox-size: 18px;
+  --custom-checkbox-marker-size: 16px;
+  width: var(--custom-checkbox-size);
+  height: var(--custom-checkbox-size);
+}
+
+.footer {
+  margin-top: 300px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #341D30;
+}
+
+.contact-us {
+  color: #FFEDE1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-textbox {
+  background-color: #FFEDE1;
+}
