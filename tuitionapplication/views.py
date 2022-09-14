@@ -145,9 +145,9 @@ def tutordashboard(request, pk):
     #return HttpResponse("This is my home page")
     #return render(request, 'tutordashboard.html')
     finalprofiletutorder = Finaltutorprofile.objects.filter(idtutor=pk)
-    finalregisterstudorder = Finalstudentregister.objects.all()
-    print(finalprofiletutorder)
-    return render(request, 'tutordashboard.html', {"finalprofiletutorder":finalprofiletutorder})
+    finalregisterstudorder = Finalstudentregister.objects.filter(tutoridnew=pk)
+    print(finalprofiletutorder, finalregisterstudorder)
+    return render(request, 'tutordashboard.html', {"finalprofiletutorder":finalprofiletutorder, "finalregisterstudorder":finalregisterstudorder})
 
 def studcreateprofile(request):
     finalprofilestudorder = Finalstudentprofile.objects.all()
@@ -171,9 +171,9 @@ def studcreateprofile(request):
 
         finalstudprofiledata.save()
         messages.success(request, "Student Profile succesfully created and saved")
-        finalprofilestudorder = Finalstudentprofile.objects.filter(ik=idstudent)
-        print(finalprofilestudorder)
-        return redirect('studentprofileview', ik=finalstudprofiledata.idstudent)
+        #finalprofilestudorder = Finalstudentprofile.objects.filter(ik=idstudent)
+        #print(finalprofilestudorder)
+        #return redirect('studentprofileview', ik=finalstudprofiledata.idstudent)
               
     #return render(request,"studcreateprofile.html",{"Fstudprofileorders":finalprofilestudorder})
     return render(request,"studcreateprofile.html",{"Fstudprofileorders":finalprofilestudorder})
@@ -210,9 +210,10 @@ def studentdashboardpage(request, ik): #take from registeration
     #return render(request, 'studentdashboardpage.html')
     #finalprofiletutorder = Finaltutorprofile.objects.all()
     #finalprofilestudorder = Finalstudentprofile.objects.filter(idstudent=ik)
-    finalregisterstudorder = Finalstudentregister.objects.all()
-    print(finalregisterstudorder)
-    return render(request, 'studentdashboardpage.html', {"finalregisterstudorder":finalregisterstudorder})
+    finalprofilestudorder = Finalstudentprofile.objects.filter(idstudent=ik)
+    finalregisterstudorder = Finalstudentregister.objects.filter(registernewid=ik)
+    print(finalprofilestudorder, finalregisterstudorder)
+    return render(request, 'studentdashboardpage.html', {"finalprofilestudorder":finalprofilestudorder, "finalregisterstudorder":finalregisterstudorder})
 
 def registernewcourse(request):
     #return HttpResponse("This is my home page")

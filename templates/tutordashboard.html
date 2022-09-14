@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/tutordashboardstyle.css' %}" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -14,7 +14,7 @@
     />
     <title>Tutor dashboard</title>
   </head>
-  {% load static %}
+
   <body>
     <p>{% for msg in messages %}
       {{msg}}
@@ -23,98 +23,50 @@
       <nav>
         <h1>TUTFINDER</h1>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">DashBoard</a></li>
-          <li><a href="contact.html">Connect</a></li>
+          <li><a href="/">Home</a></li>
+          {% for sgorders in finalprofiletutorder %}
+          <li><a href="/tutordashboard/{{sgorders.idtutor}}">DashBoard</a></li>
+         
           <img class="avatar" src="https://picsum.photos/200/200" alt="" />
         </ul>
       </nav>
       <div class="container">
+        <h1>TUTOR DASHBOARD FOR {{sgorders.inputfirstnamet}}</h1>
         <div class="content">
           <div class="left">
             <div class="txt">
-              <h4>Student List</h4>
+              <h4>Registered Student List</h4>
+            </div>
+            {% for skorders in finalregisterstudorder %}
+        
+            <div class="txt">
+              <h4>Student ID: </h4> {{skorders.registernewid}}
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Student Contact: </h4> {{skorders.registernewcontact}}
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Student Email: </h4> {{skorders.registernewemail}}
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Student Note: </h4> {{skorders.studentnotetotutor}}
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Courses: </h4> {{skorders.coursesregistered}}
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Status: </h4>  <button type="button" class="btn btn-primary">Accept</button>
             </div>
             <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <h4>Fee Status: </h4>  <button type="button" class="btn btn-primary">Paid</button>
             </div>
-            <div class="txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </div>
+           
           </div>
-          <div class="lr">
-            <div class="right">
-              <div class="col1">
-                <div class="txt">
-                  <h4>Fee Status</h4>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-primary">Accept</button>
-                </div>
-              </div>
-              <div class="col2">
-                <div class="txt">
-                  <h4>Fee Status</h4>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-                <div class="txt">
-                  <button type="button" class="btn btn-success">Paid</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        </div>  
       </div>
+      {% endfor %}
+      {% endfor %}
     </main>
   </body>
 </html>

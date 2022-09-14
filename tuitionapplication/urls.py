@@ -17,6 +17,7 @@ urlpatterns = [
     path('studentdashboardpage/<str:ik>', views.studentdashboardpage, name='studentdashboardpage'),
     path('studentprofile/<str:ik>', views.studentprofile, name='studentprofile'),
     path('signup', views.handleSignup, name='handleSignup'),
+    path('logout', views.handleLogout, name='handleLogout'),
     path('login', views.handleLogin, name='handleLogin'),
     path('tutordashboard/<str:pk>', views.tutordashboard, name='tutordashboard'),
     path('tutorprofile/<str:pk>', views.tutorprofile, name='tutorprofile'),

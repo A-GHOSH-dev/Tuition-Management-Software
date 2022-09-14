@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/codyhouse-framework/main/assets/css/style.min.css">
     <title>Register New Course</title>
 </head>
-
 <body style="background-color: #FFEDE1;">
 
     <div class="login-container" style="margin-top: 10%; margin-left: 30%;margin-right: 30%;">
@@ -18,11 +17,10 @@
             {% csrf_token %}
 
 
-
             <div class="margin-bottom-sm">
                
-                <input  style=" color: #341D30; background: #FFEDE1;  " class="form-control width-100%" type="number" name="registernewprofile"
-                    id="registernewprofile" placeholder="Your profile link (student profile link) ">
+                <input  style=" color: #341D30; background: #FFEDE1;  " class="form-control width-100%" type="number" name="registernewid"
+                    id="registernewid" placeholder="Student Profile ID">
             </div>
 
 
@@ -51,9 +49,17 @@
 
             <div class="margin-bottom-sm">
                
-                <input  style=" color: #341D30; background: #FFEDE1;  " class="form-control width-100%" type="url" name="tutorprofilelink"
-                    id="tutorprofilelink" placeholder="tutor Profile link">
+                <input  style=" color: #341D30; background: #FFEDE1;  " class="form-control width-100%" type="number" name="tutoridnew"
+                    id="tutoridnew" placeholder="Tutor ID">
             </div>
+
+            <div class="margin-bottom-sm">
+               
+                <input  style=" color: #341D30; background: #FFEDE1;  " class="form-control width-100%" type="email" name="tutornewemail"
+                    id="tutornewemail" placeholder="Tutor Email">
+            </div>
+
+
 
             <div class="margin-bottom-sm">
                
