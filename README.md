@@ -1,14 +1,17 @@
 # Tuition-Management-Software
 - pip install django
+- django-admin startproject tuitionsoftware / python -m django startproject tuitionsoftware
+- python manage.py startapp tuitionapplication
 - Install MS SQL
-> Database name: TutionManagementSoftware
+> Database settings in setting.py
+>> - Database name: TutionManagementSoftware
 >> - Username: dbmsprojectlogin
 >> - Password: dbms
 >> - Run the sql file inside MS SQL
 - python manage.py inspectdb > tuitionapplication/models.py
 - Save the models.py as UTF-8 encoding
-- For Email: 
-> In settings.py
+- For Email
+> Email settings in settings.py
 >> #Email settings
 >> - EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 >> - EMAIL_HOST = 'smtp.gmail.com'
