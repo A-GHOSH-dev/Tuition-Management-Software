@@ -2,9 +2,9 @@
 - pip install django
 - Install MS SQL
 > Database name: TutionManagementSoftware
->> Username: dbmsprojectlogin
->> Password: dbms
->> Run the sql file inside MS SQL
+>> - Username: dbmsprojectlogin
+>> - Password: dbms
+>> - Run the sql file inside MS SQL
 - python manage.py inspectdb > tuitionapplication/models.py
 - Save the models.py as UTF-8 encoding
 - For Email: 
