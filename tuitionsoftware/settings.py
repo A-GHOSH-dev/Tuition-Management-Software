@@ -158,7 +158,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ananya.ghosh2020@vitstudent.ac.in'
-EMAIL_HOST_PASSWORD = 'Password4321!'
+EMAIL_HOST_PASSWORD = 'pass'
 
 
 # Default primary key field type
